@@ -155,6 +155,108 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CF805B" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/23/CF805B/">CF805B</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/23/CF805B/" class="archive-article-date">
+  	<time datetime="2018-08-22T16:12:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#CodeForces 805</p>
+<p><div><br>这道题其实挺好想到的, 首先不能是三个字符构成的回文, 并且要保证字符’c’的数量尽可能的少<br>那么构成的字符串是这样的<br>a<br>aa<br>aab<br>aabb<br>aabba<br>aabbaa<br>aabbaab<br>aabbaabb<br>所以只要满足只有ab组成的字符串并且没有数量为3的回文ֻ<br></div><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  int n;</span><br><span class="line">  string s;</span><br><span class="line">  while (cin &gt;&gt; n) &#123;</span><br><span class="line">    s = &quot;&quot;;</span><br><span class="line">    bool flag = 1, flag2 = n % 2;</span><br><span class="line">    n -= flag2;</span><br><span class="line">    for (int i = 0; i &lt; n; i += 2) &#123;</span><br><span class="line"></span><br><span class="line">      if (flag)</span><br><span class="line">        s += &quot;aa&quot;;</span><br><span class="line">      else</span><br><span class="line">        s += &quot;bb&quot;;</span><br><span class="line">      flag = !flag;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (flag2) &#123;</span><br><span class="line">      if (flag)</span><br><span class="line">        s += &quot;a&quot;;</span><br><span class="line">      else</span><br><span class="line">        s += &quot;b&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">a</span><br><span class="line">aa</span><br><span class="line">aab</span><br><span class="line">aabb</span><br><span class="line">aabba</span><br><span class="line">aabbaa</span><br><span class="line">aabbaab</span><br><span class="line">aabbaabb</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CodeForces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">string</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">˼ά</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">����</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/CodeForces//" class="article-tag-list-link color1">CodeForces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/CodeForces/string//" class="article-tag-list-link color2">string</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/23/CF805B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CF805A" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -536,19 +638,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HelloWorld</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">CodeForces</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ˮ��</a>
+                <a href="javascript:void(0)" class="js-tag color3">水题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">水题</a>
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">˼ά</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">����</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HelloWorld</a>
               </li>
             
             <div class="clearfix"></div>

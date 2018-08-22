@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yancykahn.github.io">
-  <title>Category: CodeForces | YancyKahn</title>
+  <title>CF805B | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="YancyKahn&apos;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YancyKahn">
-<meta property="og:url" content="https://yancykahn.github.io/categories/CodeForces/index.html">
+  <meta name="description" content="#CodeForces 805 这道题其实挺好想到的, 首先不能是三个字符构成的回文, 并且要保证字符’c’的数量尽可能的少那么构成的字符串是这样的aaaaabaabbaabbaaabbaaaabbaabaabbaabb所以只要满足只有ab组成的字符串并且没有数量为3的回文ֻ12345678910111213141516171819202122232425262728293031323334353">
+<meta name="keywords" content="CodeForces,string,˼ά,����">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF805B">
+<meta property="og:url" content="https://yancykahn.github.io/2018/08/23/CF805B/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="YancyKahn&apos;s Blog">
+<meta property="og:description" content="#CodeForces 805 这道题其实挺好想到的, 首先不能是三个字符构成的回文, 并且要保证字符’c’的数量尽可能的少那么构成的字符串是这样的aaaaabaabbaabbaaabbaaaabbaabaabbaabb所以只要满足只有ab组成的字符串并且没有数量为3的回文ֻ12345678910111213141516171819202122232425262728293031323334353">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-22T16:18:40.117Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YancyKahn">
-<meta name="twitter:description" content="YancyKahn&apos;s Blog">
+<meta name="twitter:title" content="CF805B">
+<meta name="twitter:description" content="#CodeForces 805 这道题其实挺好想到的, 首先不能是三个字符构成的回文, 并且要保证字符’c’的数量尽可能的少那么构成的字符串是这样的aaaaabaabbaabbaaabbaaaabbaabaabbaabb所以只要满足只有ab组成的字符串并且没有数量为3的回文ֻ12345678910111213141516171819202122232425262728293031323334353">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -153,36 +155,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CF805B" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/23/CF805B/" class="archive-article-date">
-  	<time datetime="2018-08-22T16:12:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/23/CF805B/">CF805B</a>
+    <h1 class="article-title" itemprop="name">
+      CF805B
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/23/CF805B/" class="archive-article-date">
+  	<time datetime="2018-08-22T16:12:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#CodeForces 805</p>
+<p><div><br>这道题其实挺好想到的, 首先不能是三个字符构成的回文, 并且要保证字符’c’的数量尽可能的少<br>那么构成的字符串是这样的<br>a<br>aa<br>aab<br>aabb<br>aabba<br>aabbaa<br>aabbaab<br>aabbaabb<br>所以只要满足只有ab组成的字符串并且没有数量为3的回文ֻ<br></div><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  int n;</span><br><span class="line">  string s;</span><br><span class="line">  while (cin &gt;&gt; n) &#123;</span><br><span class="line">    s = &quot;&quot;;</span><br><span class="line">    bool flag = 1, flag2 = n % 2;</span><br><span class="line">    n -= flag2;</span><br><span class="line">    for (int i = 0; i &lt; n; i += 2) &#123;</span><br><span class="line"></span><br><span class="line">      if (flag)</span><br><span class="line">        s += &quot;aa&quot;;</span><br><span class="line">      else</span><br><span class="line">        s += &quot;bb&quot;;</span><br><span class="line">      flag = !flag;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (flag2) &#123;</span><br><span class="line">      if (flag)</span><br><span class="line">        s += &quot;a&quot;;</span><br><span class="line">      else</span><br><span class="line">        s += &quot;b&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">a</span><br><span class="line">aa</span><br><span class="line">aab</span><br><span class="line">aabb</span><br><span class="line">aabba</span><br><span class="line">aabbaa</span><br><span class="line">aabbaab</span><br><span class="line">aabbaabb</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assert/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assert/images/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -206,7 +239,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -223,70 +256,137 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://yancykahn.github.io/2018/08/23/CF805B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/22/CF805A/" class="archive-article-date">
-  	<time datetime="2018-08-22T15:59:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/22/CF805A/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CF805A</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/22/CF805A/">CF805A</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CodeForces</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">水题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CodeForces//" class="article-tag-list-link color1">CodeForces</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CF805B" data-title="CF805B" data-url="https://yancykahn.github.io/2018/08/23/CF805B/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -309,10 +409,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
