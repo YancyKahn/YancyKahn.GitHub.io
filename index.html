@@ -177,7 +177,7 @@
       
         <h1 id="GDB-调试"><a href="#GDB-调试" class="headerlink" title="GDB 调试"></a>GDB 调试</h1><hr>
 <p>我们在进行代码创作的时候, 不可避免会产生bug, 即使没有bug. 我们想要知道程序运行过程中的输出或者程序运行的情况, 以便于我们更好的管理程序或者随心所欲的操纵程序, 虽然大多数IDE已经集成的debug的功能, 但是在Bash中我们用vim进行创作, GDB的调试就必不可少, 可以发挥储更强大的功能, GDB虽小, 但是他的功能却是很强大的, 正所谓 “麻雀虽小, 五脏区全”.</p>
-<h3 id="何为GDB"><a href="#何为GDB" class="headerlink" title="何为GDB"></a>何为GDB</h3><p><strong>wikipedia</strong> 如是说:<br><a href="https://en.wikipedia.org/wiki/GNU_Debugger" target="_blank" rel="noopener">The GNU Debugger (GDB)</a>  is a portable debugger that runs on many Unix-like systems and works for many programming languages, including Ada, C, C++, Objective-C, Free Pascal, Fortran, Go, Java[1] and partially others.<br>GDB就是运行在 <strong>Unix-like</strong> 平台上的GUN软件系统的调试器, 也就是说是一个专门进行调试的软件.<br>到目前为止, GDB已经支持以下的语言:</p>
+<h2 id="何为GDB"><a href="#何为GDB" class="headerlink" title="何为GDB"></a>何为GDB</h2><p><strong>wikipedia</strong> 如是说:<br><a href="https://en.wikipedia.org/wiki/GNU_Debugger" target="_blank" rel="noopener">The GNU Debugger (GDB)</a>  is a portable debugger that runs on many Unix-like systems and works for many programming languages, including Ada, C, C++, Objective-C, Free Pascal, Fortran, Go, Java[1] and partially others.<br>GDB就是运行在 <strong>Unix-like</strong> 平台上的GUN软件系统的调试器, 也就是说是一个专门进行调试的软件.<br>到目前为止, GDB已经支持以下的语言:</p>
 <blockquote>
 <ul>
 <li>Ada</li>
@@ -196,7 +196,7 @@
 </blockquote>
 <p><a href="http://www.gnu.org/software/gdb/" target="_blank" rel="noopener">GDB官网</a> 在官网中我们可以下载到最新版本的GDB, 并且了解到的最新信息</p>
 <p><a href="https://sourceware.org/gdb/onlinedocs/gdb/" target="_blank" rel="noopener">GDB-toturial</a> GDB调试参考</p>
-<p>一般情况下, GDB可以帮助我们进行一下功能<a href="https://blog.csdn.net/haoel/article/details/2879" target="_blank" rel="noopener">^1</a>:</p>
+<p>一般情况下, GDB可以帮助我们进行一下功能:<br><em>参考至文献[ <a href="https://blog.csdn.net/haoel/article/details/2879" target="_blank" rel="noopener">2.</a>]</em></p>
 <blockquote>
 <ul>
 <li>启动你的程序，可以按照你的自定义的要求随心所欲的运行程序。</li>
@@ -205,6 +205,60 @@
 <li>动态的改变你程序的执行环境。</li>
 </ul>
 </blockquote>
+<h2 id="GDB调试"><a href="#GDB调试" class="headerlink" title="GDB调试"></a>GDB调试</h2><p>在这里我只演示我们平时用的比较多的语言:</p>
+<blockquote>
+<ul>
+<li style="list-style: none"><input type="checkbox"> Ada</li>
+<li style="list-style: none"><input type="checkbox"> Assembly</li>
+<li>C</li>
+<li>C++</li>
+<li style="list-style: none"><input type="checkbox"> D</li>
+<li style="list-style: none"><input type="checkbox"> Fortran</li>
+<li style="list-style: none"><input type="checkbox"> Go</li>
+<li style="list-style: none"><input type="checkbox"> Objective-C</li>
+<li style="list-style: none"><input type="checkbox"> OpenCL</li>
+<li style="list-style: none"><input type="checkbox"> Modula-2</li>
+<li style="list-style: none"><input type="checkbox"> Pascal</li>
+<li style="list-style: none"><input type="checkbox"> Rust</li>
+</ul>
+</blockquote>
+<ol>
+<li><p><strong>GDB 命令介绍</strong><br>调试命令: <strong><em>For C/C++</em></strong></p>
+<blockquote>
+<ol>
+<li>在编译时将调试信息加入到可执行文件中</li>
+</ol>
+</blockquote>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// -g 参数将调试信息加入到可执行文件中  -Wall 参数在编译后显示所有警告</span><br><span class="line">gcc -g -Wall helloworld.c</span><br><span class="line">g++ -g -Wall helloworld.cpp</span><br><span class="line">//编译完成后生成 a.exe 文件</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol start="2">
+<li>通过GDB执行a.exe 文件, 两种执行方式.</li>
+</ol>
+</blockquote>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb [filename]</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gdb</span><br><span class="line">file [filename]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol start="3">
+<li>进行调试<br>调试一般分为以下几个步骤:<ol>
+<li>添加断点</li>
+<li>查看断点信息</li>
+<li>执行调试</li>
+<li>查看调试输出信息</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<p> 在调试之前, 我先介绍以下GDB调试时候常用的几个命令:</p>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p> <em>参考至文献[ <a href="https://blog.csdn.net/sfeng177/article/details/53014289" target="_blank" rel="noopener">7.</a>]</em></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//list 命令的作用是在控制台上显示代码信息</span><br><span class="line">list (l) 从中间显示前后10行</span><br><span class="line">list + 向后显示10行</span><br><span class="line">list - 向前显示10行</span><br><span class="line">list [line number] 显示line number前后10行</span><br><span class="line">list [function] 显示名为function的函数前后10行</span><br><span class="line">list listsize &lt;count&gt; 设置一次性显示代码行数</span><br><span class="line">show listsize 显示一次性显示行数</span><br><span class="line">list &lt;start&gt;, &lt;end&gt; 显示从start到end行的代码</span><br><span class="line">list , &lt;end&gt; 显示从当前行到end行的代码</span><br></pre></td></tr></table></figure>
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p> <em>参考至文献[ <a href="https://blog.csdn.net/yangzhongxuan/article/details/6897968" target="_blank" rel="noopener">8.</a>]</em></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//相关命令有break，tbreak，rbreak,hbreak，thbreak，后两种是基于硬件的，先不介绍。</span><br><span class="line">break，tbreak可以根据行号、函数、条件生成断点。tbreak设置方法与break相同，只不过tbreak只在断点停一次，过后会自动将断点删除，break需要手动控制断点的删除和使能。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>GDB 调试实例</strong><br>下面的 <strong><em>Hello world For C++</em></strong> 通过这个例子, 我们将学到关于GDB调试的基础命令</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    cout &lt;&lt; &quot;hello world!&quot; &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1.] <a href="https://en.wikipedia.org/wiki/GNU_Debugger" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/GNU_Debugger</a><br>[2.] <a href="https://blog.csdn.net/haoel/article/details/2879" target="_blank" rel="noopener">https://blog.csdn.net/haoel/article/details/2879</a><br>[3.] <a href="https://sourceware.org/gdb/onlinedocs/gdb/" target="_blank" rel="noopener">https://sourceware.org/gdb/onlinedocs/gdb/</a><br>[4.] <a href="http://www.gnu.org/software/gdb/" target="_blank" rel="noopener">http://www.gnu.org/software/gdb/</a><br>[5.]<a href="http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener">http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F</a><br>[6.] <a href="https://blog.csdn.net/fuqiangnxn/article/details/54140155" target="_blank" rel="noopener">https://blog.csdn.net/fuqiangnxn/article/details/54140155</a><br>[7.] <a href="https://blog.csdn.net/sfeng177/article/details/53014289" target="_blank" rel="noopener">https://blog.csdn.net/sfeng177/article/details/53014289</a><br>[8.] <a href="https://blog.csdn.net/yangzhongxuan/article/details/6897968" target="_blank" rel="noopener">https://blog.csdn.net/yangzhongxuan/article/details/6897968</a></p>
 
       
 
