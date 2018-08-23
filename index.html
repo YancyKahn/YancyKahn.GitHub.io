@@ -155,6 +155,124 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-GDB基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/23/GDB基础/">GDB基础</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/23/GDB基础/" class="archive-article-date">
+  	<time datetime="2018-08-23T08:37:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="GDB-调试"><a href="#GDB-调试" class="headerlink" title="GDB 调试"></a>GDB 调试</h1><hr>
+<p>我们在进行代码创作的时候, 不可避免会产生bug, 即使没有bug. 我们想要知道程序运行过程中的输出或者程序运行的情况, 以便于我们更好的管理程序或者随心所欲的操纵程序, 虽然大多数IDE已经集成的debug的功能, 但是在Bash中我们用vim进行创作, GDB的调试就必不可少, 可以发挥储更强大的功能, GDB虽小, 但是他的功能却是很强大的, 正所谓 “麻雀虽小, 五脏区全”.</p>
+<h3 id="何为GDB"><a href="#何为GDB" class="headerlink" title="何为GDB"></a>何为GDB</h3><p><strong>wikipedia</strong> 如是说:<br><a href="https://en.wikipedia.org/wiki/GNU_Debugger" target="_blank" rel="noopener">The GNU Debugger (GDB)</a>  is a portable debugger that runs on many Unix-like systems and works for many programming languages, including Ada, C, C++, Objective-C, Free Pascal, Fortran, Go, Java[1] and partially others.<br>GDB就是运行在 <strong>Unix-like</strong> 平台上的GUN软件系统的调试器, 也就是说是一个专门进行调试的软件.<br>到目前为止, GDB已经支持以下的语言:</p>
+<blockquote>
+<ul>
+<li>Ada</li>
+<li>Assembly</li>
+<li>C</li>
+<li>C++</li>
+<li>D</li>
+<li>Fortran</li>
+<li>Go</li>
+<li>Objective-C</li>
+<li>OpenCL</li>
+<li>Modula-2</li>
+<li>Pascal</li>
+<li>Rust</li>
+</ul>
+</blockquote>
+<p><a href="http://www.gnu.org/software/gdb/" target="_blank" rel="noopener">GDB官网</a> 在官网中我们可以下载到最新版本的GDB, 并且了解到的最新信息</p>
+<p><a href="https://sourceware.org/gdb/onlinedocs/gdb/" target="_blank" rel="noopener">GDB-toturial</a> GDB调试参考</p>
+<p>一般情况下, GDB可以帮助我们进行一下功能<a href="https://blog.csdn.net/haoel/article/details/2879" target="_blank" rel="noopener">^1</a>:</p>
+<blockquote>
+<ul>
+<li>启动你的程序，可以按照你的自定义的要求随心所欲的运行程序。</li>
+<li>可让被调试的程序在你所指定的调置的断点处停住。（断点可以是条件表达式）</li>
+<li>当程序被停住时，可以检查此时你的程序中所发生的事。</li>
+<li>动态的改变你程序的执行环境。</li>
+</ul>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">debugging</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gdb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/debugging//" class="article-tag-list-link color5">debugging</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/23/GDB基础/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vimrc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1076,6 +1194,26 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">string</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">回文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">思维</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">debugging</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gdb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">helloworld</a>
               </li>
              
@@ -1093,18 +1231,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">configure</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">string</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">回文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">思维</a>
               </li>
             
             <div class="clearfix"></div>
