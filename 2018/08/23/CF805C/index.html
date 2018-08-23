@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
   <title>CF805C | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="YancyKahn&apos;s Blog">
-<meta name="keywords" content="CodeForces">
+  <meta name="description" content="CodeForces 805 C 题目大意:  有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小. 那么可以这样走: 当n = 5   i   j   cost 1   5   0 5   2   1 2   4   0 4   3   1 可以得到公式 (n + 1)/2 - 1 123456789101112#include &amp;lt;c">
+<meta name="keywords" content="CodeForces,水题,思维">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF805C">
 <meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/23/CF805C/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="YancyKahn&apos;s Blog">
+<meta property="og:description" content="CodeForces 805 C 题目大意:  有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小. 那么可以这样走: 当n = 5   i   j   cost 1   5   0 5   2   1 2   4   0 4   3   1 可以得到公式 (n + 1)/2 - 1 123456789101112#include &amp;lt;c">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-23T01:28:06.608Z">
+<meta property="og:updated_time" content="2018-08-23T06:25:39.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CF805C">
-<meta name="twitter:description" content="YancyKahn&apos;s Blog">
+<meta name="twitter:description" content="CodeForces 805 C 题目大意:  有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小. 那么可以这样走: 当n = 5   i   j   cost 1   5   0 5   2   1 2   4   0 4   3   1 可以得到公式 (n + 1)/2 - 1 123456789101112#include &amp;lt;c">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -175,7 +175,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="CodeForces-805-C"><a href="#CodeForces-805-C" class="headerlink" title="CodeForces 805 C"></a>CodeForces 805 C</h1><blockquote>
+<p>题目大意:</p>
+</blockquote>
+<pre><code>有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小.
+那么可以这样走:
+当n = 5  
+i   j   cost
+1   5   0
+5   2   1
+2   4   0
+4   3   1
+可以得到公式
+(n + 1)/2 - 1
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  int n;</span><br><span class="line">  while (cin &gt;&gt; n) &#123;</span><br><span class="line">    cout &lt;&lt; (n + 1) / 2 - 1 &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -221,11 +235,30 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CodeForces</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">水题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">思维</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/CodeForces//" class="article-tag-list-link color1">CodeForces</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -289,7 +322,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/23/makedown-toturial/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/08/23/markdown-toturial/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -327,7 +360,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CodeForces-805-C"><span class="toc-number">1.</span> <span class="toc-text">CodeForces 805 C</span></a></li></ol>
                     </div>
                 </span>
             </div>
