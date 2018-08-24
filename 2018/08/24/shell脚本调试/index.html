@@ -8,19 +8,21 @@
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
   <title>shell脚本调试 | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.  直接调试  何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序">
+  <meta name="description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法. 1. 直接调试 何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程">
 <meta name="keywords" content="debugging,shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell脚本调试">
 <meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/24/shell脚本调试/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.  直接调试  何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序">
+<meta property="og:description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法. 1. 直接调试 何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://yancykahn.github.io/assert/debug/shell/1.jpg">
-<meta property="og:updated_time" content="2018-08-24T06:22:15.586Z">
+<meta property="og:image" content="https://yancykahn.github.io/assert/debug/shell/2.jpg">
+<meta property="og:image" content="https://yancykahn.github.io/assert/debug/shell/3.jpg">
+<meta property="og:updated_time" content="2018-08-24T09:12:37.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell脚本调试">
-<meta name="twitter:description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.  直接调试  何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序">
+<meta name="twitter:description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法. 1. 直接调试 何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程">
 <meta name="twitter:image" content="https://yancykahn.github.io/assert/debug/shell/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
@@ -180,18 +182,120 @@
                     
                       
                         <h1 id="Shell-脚本调试方法"><a href="#Shell-脚本调试方法" class="headerlink" title="Shell 脚本调试方法"></a>Shell 脚本调试方法</h1><p>我们在使用 <strong>Unix-like</strong> 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.</p>
-<ol>
-<li><p>直接调试</p>
-<blockquote>
+<h2 id="1-直接调试"><a href="#1-直接调试" class="headerlink" title="1. 直接调试"></a>1. 直接调试</h2><blockquote>
 <p>何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 <strong><em>printf</em></strong> 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序中添加 <strong><em>echo</em></strong> 达到输出中间值的效果, 这里就不做过多的赘述.<br>如下面这个脚本</p>
 </blockquote>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">mkdir file_dir</span><br><span class="line">cd file_dir</span><br><span class="line">for ((i=0;i&lt;10;i++))</span><br><span class="line">do</span><br><span class="line">    file_name=file_$i.txt</span><br><span class="line">    touch $file_name</span><br><span class="line">    echo $file_name</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">mkdir file_dir</span><br><span class="line">cd file_dir</span><br><span class="line">for ((i=0;i&lt;10;i++))</span><br><span class="line">do</span><br><span class="line">    file_name=file_$i.txt</span><br><span class="line">    touch $file_name</span><br><span class="line">    echo $file_name</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>echo 输出文件名<br> <img src="/assert/debug/shell/1.jpg" width="1200"><br><br></p>
+<p>echo 输出文件名<br><img src="/assert/debug/shell/1.jpg" width="1200"></p>
 </blockquote>
-</li>
-<li>使用 Shell 脚本调试命令调试</li>
+<p> <br></p>
+<h2 id="2-使用-Shell-脚本调试命令调试"><a href="#2-使用-Shell-脚本调试命令调试" class="headerlink" title="2. 使用 Shell 脚本调试命令调试"></a>2. 使用 Shell 脚本调试命令调试</h2><p>shell 提供了几种调试参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>只读取shell脚本，但不实际执行</td>
+<td>测试shell脚本是否存在语法错误</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>进入跟踪方式，显示所执行的每一条命令</td>
+<td>使shell在执行脚本的过程中把它实际执行的每一个命令行显示出来</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>从strings中读取命令</td>
+<td>临时测试一小段脚本的执行结果</td>
+</tr>
+</tbody>
+</table>
+<p>此命令是执行下叙的调试命令(<a href="#jump">tee</a>)的调试代码加上 -x 参数的结果, 执行每一条命令并打印出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[YancyKahn@DESKTOP-VILIJH9~/Program/shell-script]$sh -x test06.sh</span><br><span class="line">+ ifconfig eth0</span><br><span class="line">+ grep inet addr</span><br><span class="line">+ tee iptmp.txt</span><br><span class="line">+ cut -d : -f 3</span><br><span class="line">+ ipaddr=255.255.0.0</span><br><span class="line">+ echo 255.255.0.0</span><br><span class="line">255.255.0.0</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-使用-Linux-系统命令调试"><a href="#3-使用-Linux-系统命令调试" class="headerlink" title="3. 使用 Linux 系统命令调试"></a>3. 使用 Linux 系统命令调试</h2><p>在使用linux系统命令进行调试时, 我们需要更改shell脚本的源代码, 进行调试. 主要思想是在其中加入我们需要输出的信息, 这里主要使用trap和tee命令</p>
+<h3 id="1-调试命令"><a href="#1-调试命令" class="headerlink" title="1. 调试命令"></a>1. 调试命令</h3><blockquote>
+<h3 id="1-trap"><a href="#1-trap" class="headerlink" title="1.trap"></a>1.trap</h3><p><strong><em>参考至文献[<a href="https://www.ibm.com/developerworks/cn/linux/l-cn-shell-debug/index.html" target="_blank" rel="noopener">1.</a>]</em></strong><br><strong><em>参考至文献[<a href="http://man.linuxde.net/trap" target="_blank" rel="noopener">2.</a>]</em></strong><br>trap命令用于指定在接收到信号后将要采取的动作，常见的用途是在脚本程序被中断时完成清理工作。当shell接收到sigspec指定的信号时，arg参数（命令）将会被读取，并被执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trap [-lp] [[arg] sigspec ...]</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>在调试的时候我们使用trap命令时, 可以将命令简化为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trap &apos;command&apos; signal   //command 的引号是必须的</span><br></pre></td></tr></table></figure></p>
+<p>其中, signal 是要捕获的信号, command是捕获到signal后要执行的命令. 我么将trap命令写到 shell 脚本中. 根据捕获到的信号得到输出或者执行某些命令. shell 脚本在执行的过程中会产生伪信号. 何为伪信号, 伪信号是有非系统产生的信号, 即为伪信号, 在这里为 shell 产生的信号</p>
+<p>shell中的伪信号:</p>
+<table>
+<thead>
+<tr>
+<th>信号名</th>
+<th>何时产生</th>
+<th>使用说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EXIT</td>
+<td>从一个函数中退出或者整个脚本执行结束</td>
+<td>在函数退出或者脚本终止时可以输出想要跟踪的变量值</td>
+</tr>
+<tr>
+<td>ERR</td>
+<td>当一个命令返回非零状态时(命令执行失败)</td>
+<td>追踪运行失败的命令并输出调试信息</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td>脚本中的每一条命令执行前</td>
+<td>可以实现相关变量的全程跟踪</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<blockquote>
+<p> 运行实例</p>
+<ol>
+<li>捕获ERR信息</li>
 </ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#/bin/sh</span><br><span class="line">NOT_FOUND_ERROR()</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;[LINE: $1] Error command not found exited with status $?&quot;</span><br><span class="line">&#125;</span><br><span class="line">foo1()</span><br><span class="line">&#123;</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line">foo2()</span><br><span class="line">&#123;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">trap &apos;NOT_FOUND_ERROR $LINENO&apos; ERR</span><br><span class="line">foo</span><br><span class="line">foo1</span><br><span class="line">foo2</span><br></pre></td></tr></table></figure>
+<p><img src="/assert/debug/shell/2.jpg" width="1200"> </p>
+<blockquote>
+<ol start="2">
+<li>捕获DEBUG信息</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">echo &quot;DEBUG BEGIN&quot;</span><br><span class="line">trap &apos;echo [Debug: $LINENO] value d=$d, e=$e, f=$g&apos; DEBUG</span><br><span class="line">a=1</span><br><span class="line">b=2</span><br><span class="line">c=3</span><br><span class="line">for ((i=0;i&lt;5;i++))</span><br><span class="line">do</span><br><span class="line">    d=`expr $d + $a`</span><br><span class="line">    e=`expr $e + $b`</span><br><span class="line">    f=`expr $f + $c`</span><br><span class="line">done</span><br><span class="line">echo &quot;END&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="/assert/debug/shell/3.jpg" width="1200"> </p>
+<p><br></p>
+<blockquote>
+<h3 id="2-tee"><a href="#2-tee" class="headerlink" title="2. tee"></a>2. tee</h3><p>在shell脚本中管道以及输出输出重定向使用很多, 在起作用下一些命令的执行结果可能就成了下一条命令的输入, 因为使用管道和输入输出重定向, 所以中间的输出我们是不可见的. 因为输出不可见所以调试就异常困难, tee命令可以帮助我们很好的去调试这种shell脚本<br>首先我们先复习一下管道和tee命令:<br><strong><em> 1. 管道是Linux中很重要的一种通信方式,是把一个程序的输出直接连接到另一个程序的输入. </em></strong><br><strong><em> 2. tee命令用于将数据重定向到文件，另一方面还可以提供一份重定向数据的副本作为后续命令的stdin。简单的说就是把数据重定向到给定文件和屏幕上. </em></strong></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls | tee file_name.txt   //把ls命令执行的结果输出在屏幕和file_name.txt文件中</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>tee 调试实例<br>现在有如下脚本想要获得掩码地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipaddr=`ifconfig eth0 | grep &quot;inet addr&quot; | cut &apos; &apos; : -f 3`</span><br><span class="line">echo $ipaddr</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>输出为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cut:  : No such file or directory</span><br><span class="line">cut: :: No such file or directory</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>我们并不知道具体哪里出了错, 在程序中加入tee把数据引流出来, 我们看中间的数据有什么问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipaddr=`ifconfig eth0 | grep &quot;inet addr&quot; | tee iptemp.txt| cut &apos; &apos; : -f 3`</span><br><span class="line">echo $ipaddr</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>查看中间输出iptemp.txt的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inet addr:169.254.14.12  Mask:255.255.0.0</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>我们发现他们中间是以制表符分割的, 所以讲程序改为 <span id="jump"></span><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ipaddr=`ifconfig eth0 | grep &quot;inet addr&quot; | cut -d : -f 3`</span><br><span class="line">echo $ipaddr</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>正常输出得到掩码地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">255.255.0.0</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h2 id="4-DEBUG宏调试"><a href="#4-DEBUG宏调试" class="headerlink" title="4. DEBUG宏调试"></a>4. DEBUG宏调试</h2><p>在c语言中我们经常使用DEBUG宏来进行调试, 在shell脚本同样可以使用相同的思想进行调试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ “$DEBUG” = “true” ]; then</span><br><span class="line">echo “DEBUGGING INFO”  #此处可以输出调试信息</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h3 id="1-Linux中的奇怪变量的含义-0-1-2"><a href="#1-Linux中的奇怪变量的含义-0-1-2" class="headerlink" title="1. Linux中的奇怪变量的含义($#,$@,$0,$1,$2,$*,$$,$?)"></a>1. Linux中的奇怪变量的含义($#,$@,$0,$1,$2,$*,$$,$?)</h3><p><strong><em>参考至文献[<a href="http://blog.51cto.com/dadekey/119938" target="_blank" rel="noopener">3.</a>]</em></strong></p>
+<blockquote>
+<p>$# 是传给脚本的参数个数<br>$0 是脚本本身的名字<br>$1 是传递给该shell脚本的第一个参数<br>$2 是传递给该shell脚本的第二个参数<br>$@ 是传给脚本的所有参数的列表<br>$* 是以一个单字符串显示所有向脚本传递的参数，与位置变量不同，参数可超过9个<br>$$ 是脚本运行的当前进程ID号<br>$? 是显示最后命令的退出状态，0表示没有错误，其他表示有错误</p>
+</blockquote>
+<h3 id="2-shell-脚本常量"><a href="#2-shell-脚本常量" class="headerlink" title="2. shell 脚本常量"></a>2. <a href="https://blog.csdn.net/a343315623/article/details/51436889" target="_blank" rel="noopener">shell 脚本常量</a></h3><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1.] <a href="https://www.ibm.com/developerworks/cn/linux/l-cn-shell-debug/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/l-cn-shell-debug/index.html</a><br>[2.] <a href="http://man.linuxde.net/trap" target="_blank" rel="noopener">http://man.linuxde.net/trap</a><br>[3.] <a href="http://blog.51cto.com/dadekey/119938" target="_blank" rel="noopener">http://blog.51cto.com/dadekey/119938</a><br>[4.] <a href="https://blog.csdn.net/a343315623/article/details/51436889" target="_blank" rel="noopener">https://blog.csdn.net/a343315623/article/details/51436889</a></p>
 
                           
                                     
@@ -360,7 +464,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell-脚本调试方法"><span class="toc-number">1.</span> <span class="toc-text">Shell 脚本调试方法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell-脚本调试方法"><span class="toc-number">1.</span> <span class="toc-text">Shell 脚本调试方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-直接调试"><span class="toc-number">1.1.</span> <span class="toc-text">1. 直接调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用-Shell-脚本调试命令调试"><span class="toc-number">1.2.</span> <span class="toc-text">2. 使用 Shell 脚本调试命令调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-使用-Linux-系统命令调试"><span class="toc-number">1.3.</span> <span class="toc-text">3. 使用 Linux 系统命令调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-调试命令"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 调试命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-trap"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.trap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-tee"><span class="toc-number">1.3.3.</span> <span class="toc-text">2. tee</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-DEBUG宏调试"><span class="toc-number">1.4.</span> <span class="toc-text">4. DEBUG宏调试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">2.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Linux中的奇怪变量的含义-0-1-2"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. Linux中的奇怪变量的含义($#,$@,$0,$1,$2,$*,$$,$?)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-shell-脚本常量"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. shell 脚本常量</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">3.</span> <span class="toc-text">参考文献</span></a></li></ol>
                     </div>
                 </span>
             </div>
