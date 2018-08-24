@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="YancyKahn">
 <meta property="og:description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.  直接调试  何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-24T03:46:39.500Z">
+<meta property="og:image" content="https://yancykahn.github.io/assert/debug/shell/1.jpg">
+<meta property="og:updated_time" content="2018-08-24T06:22:15.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell脚本调试">
 <meta name="twitter:description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.  直接调试  何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序">
+<meta name="twitter:image" content="https://yancykahn.github.io/assert/debug/shell/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -183,10 +185,12 @@
 <blockquote>
 <p>何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 <strong><em>printf</em></strong> 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序中添加 <strong><em>echo</em></strong> 达到输出中间值的效果, 这里就不做过多的赘述.<br>如下面这个脚本</p>
 </blockquote>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">mkdir file_dir</span><br><span class="line">cd file_dir</span><br><span class="line">for ((i=0;i&lt;10;i++))</span><br><span class="line">do</span><br><span class="line">    file_name=file_$i.txt</span><br><span class="line">    touch $file_name</span><br><span class="line">    echo $file_name</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">mkdir file_dir</span><br><span class="line">cd file_dir</span><br><span class="line">for ((i=0;i&lt;10;i++))</span><br><span class="line">do</span><br><span class="line">    file_name=file_$i.txt</span><br><span class="line">    touch $file_name</span><br><span class="line">    echo $file_name</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>echo 输出文件名<br> <img src="/assert/debug/shell/1.jpg" width="1200"><br><br></p>
+</blockquote>
 </li>
-<li><p>使用 Shell 脚本调试命令调试</p>
-</li>
+<li>使用 Shell 脚本调试命令调试</li>
 </ol>
 
                           

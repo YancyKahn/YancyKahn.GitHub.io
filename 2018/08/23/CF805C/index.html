@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
   <title>CF805C | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CodeForces 805 C 题目大意:  有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小. 那么可以这样走: 当n = 5   i   j   cost 1   5   0 5   2   1 2   4   0 4   3   1 可以得到公式 (n + 1)/2 - 1 123456789101112#include &amp;lt;c">
+  <meta name="description" content="CodeForces 805 C 题目大意:        有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小.        那么可以这样走:        当n = 5        i   j   cost        1   5   0        5   2   1        2   4   0        4   3">
 <meta name="keywords" content="CodeForces,水题,思维">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF805C">
 <meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/23/CF805C/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="CodeForces 805 C 题目大意:  有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小. 那么可以这样走: 当n = 5   i   j   cost 1   5   0 5   2   1 2   4   0 4   3   1 可以得到公式 (n + 1)/2 - 1 123456789101112#include &amp;lt;c">
+<meta property="og:description" content="CodeForces 805 C 题目大意:        有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小.        那么可以这样走:        当n = 5        i   j   cost        1   5   0        5   2   1        2   4   0        4   3">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-23T06:25:39.569Z">
+<meta property="og:updated_time" content="2018-08-24T06:22:02.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CF805C">
-<meta name="twitter:description" content="CodeForces 805 C 题目大意:  有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小. 那么可以这样走: 当n = 5   i   j   cost 1   5   0 5   2   1 2   4   0 4   3   1 可以得到公式 (n + 1)/2 - 1 123456789101112#include &amp;lt;c">
+<meta name="twitter:description" content="CodeForces 805 C 题目大意:        有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小.        那么可以这样走:        当n = 5        i   j   cost        1   5   0        5   2   1        2   4   0        4   3">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -178,19 +178,9 @@
                     
                       
                         <h1 id="CodeForces-805-C"><a href="#CodeForces-805-C" class="headerlink" title="CodeForces 805 C"></a>CodeForces 805 C</h1><blockquote>
-<p>题目大意:</p>
+<p>题目大意:<br>        有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小.<br>        那么可以这样走:<br>        当n = 5<br>        i   j   cost<br>        1   5   0<br>        5   2   1<br>        2   4   0<br>        4   3   1<br>        可以得到公式<br>        (n + 1)/2 - 1</p>
 </blockquote>
-<pre><code>有[1, n]个学校, 从学校i到j的花费为 (i + j)%(1 + n), 要求经过所有的学校花费最小.
-那么可以这样走:
-当n = 5  
-i   j   cost
-1   5   0
-5   2   1
-2   4   0
-4   3   1
-可以得到公式
-(n + 1)/2 - 1
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  int n;</span><br><span class="line">  while (cin &gt;&gt; n) &#123;</span><br><span class="line">    cout &lt;&lt; (n + 1) / 2 - 1 &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  int n;</span><br><span class="line">  while (cin &gt;&gt; n) &#123;</span><br><span class="line">    cout &lt;&lt; (n + 1) / 2 - 1 &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                           
                                     
