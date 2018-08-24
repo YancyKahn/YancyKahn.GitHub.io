@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
-  <title>Tag: markdown | YancyKahn</title>
+  <title>编译链接过程 | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="YancyKahn&apos;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YancyKahn">
-<meta property="og:url" content="https://YancyKahn.GitHub.io/tags/markdown/index.html">
+  <meta name="description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程. 执行这个过程的程序被称为编译器 .下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程   1. 编译过程 C文件编译">
+<meta name="keywords" content="编译,链接,g++,gcc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译链接过程">
+<meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/24/编译链接过程/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="YancyKahn&apos;s Blog">
+<meta property="og:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程. 执行这个过程的程序被称为编译器 .下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程   1. 编译过程 C文件编译">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://yancykahn.github.io/assert/compiler-linker/1.png">
+<meta property="og:image" content="https://yancykahn.github.io/assert/compiler-linker/300px-Linker.png">
+<meta property="og:updated_time" content="2018-08-24T15:08:14.710Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YancyKahn">
-<meta name="twitter:description" content="YancyKahn&apos;s Blog">
+<meta name="twitter:title" content="编译链接过程">
+<meta name="twitter:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程. 执行这个过程的程序被称为编译器 .下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程   1. 编译过程 C文件编译">
+<meta name="twitter:image" content="https://yancykahn.github.io/assert/compiler-linker/1.png">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -153,129 +158,314 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-编译链接过程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      编译链接过程
+    </h1>
+  
+
+          
+            <a href="/2018/08/24/编译链接过程/" class="archive-article-date">
+  	<time datetime="2018-08-24T11:42:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
+</a>
+              
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+                    
+                      
+                        <h1 id="编译链接过程"><a href="#编译链接过程" class="headerlink" title="编译链接过程"></a>编译链接过程</h1><p>C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程. 执行这个过程的程序被称为<a href="https://zh.wikipedia.org/wiki/%E7%B7%A8%E8%AD%AF%E5%99%A8" target="_blank" rel="noopener">编译器</a> .<br>下面是从源代码到可执行文件的整个编译链接的过程:</p>
+<p>整个编译链接过程无非就分为 <a href="#by"><strong>编译过程</strong></a> 和 <a href="#lj"><strong>链接过程</strong></a></p>
+<center><br><img src="/assert/compiler-linker/1.png"><br></center>
+
+<h2 id="1-编译过程"><a href="#1-编译过程" class="headerlink" title="1. 编译过程 "></a>1. 编译过程 <span id="by"></span></h2><p>C文件编译过程又可分为: <strong>编译</strong> 和 <strong>汇编</strong></p>
+<h3 id="1-1-编译"><a href="#1-1-编译" class="headerlink" title="1.1 编译"></a>1.1 编译</h3><blockquote>
+<p>编译是指编译器读取源程序(字符流), 对之进行词法和语法的分析, 将高级语言指令转换为功能等效的汇编代码.</p>
+</blockquote>
+<p><font size="3" color="green"></font></p>
+<blockquote>
+<p>简而言之就是将 高级语言(我们这里指C源文件) 代码 转化为 汇编代码<br><br>高级语言指令转化为汇编代码有需要两个过程:</p>
+<p></p><h5> <font color="0xacac">1.1.1 预处理</font></h5><br>预处理过程通过<a href="https://zh.wikipedia.org/wiki/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8" target="_blank" rel="noopener">预处理器</a>来完成, 预处理器是程序中处理输入数据，产生能用来输入到其他程序的数据的程序。输出被称为输入数据预处理过的形式，常用在之后的程序比如编译器中.<p></p>
+</blockquote>
+<blockquote>
+<p>本文只讨论C预处理器, C预处理器是C语言、C++语言的预处理器。用于在编译器处理程序之前预扫描源代码，完成 <strong>头文件的包含</strong>, <strong>宏扩展</strong>, <strong>条件编译</strong>, <strong>行控制(line control)</strong> 等操作。</p>
+</blockquote>
+<blockquote>
+<p>对于C/C++语言预处理一般分为以下几个过程:</p>
+</blockquote>
+<blockquote>
+<p></p><h5> 1.1.1.1 包含文件 </h5><br>所谓包含文件即为头文件 <strong>#include</strong> 到的文件, 在预处理的过程中会将其加入到预处理器的输出文件中, 以供编译程序处理.<p></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;Hello, world!\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h5> 1.1.1.2 条件编译 </h5>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if-else指令包括#if, #ifdef, #ifndef, #else, #elif and #endif .</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这些指令可以指定不同的宏来决定那些代码执行, 那些不执行. 在预处理的过程中就会将那些不执行的程序进行过滤, 预处理器只输出执行的代码到编译程序中.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#if VERBOSE &gt;= 2</span><br><span class="line">  print(&quot;trace message&quot;);</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">#ifdef __unix__ /* __unix__ is usually defined by compilers targeting Unix systems */</span><br><span class="line"># include &lt;unistd.h&gt;</span><br><span class="line">#elif defined _WIN32 /* _WIN32 is usually defined by compilers targeting 32 or 64 bit Windows systems */</span><br><span class="line"># include &lt;windows.h&gt;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p></p><h5> 1.1.1.3 宏定义与扩展 </h5><br>对于已经定义的宏在进行预处理的过程中直接用已经定义好的宏进行替换, 若定义了 <strong>#undef</strong> 以后出现的这种宏都不会替换.<p></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define &lt;identifier&gt; &lt;replacement token list&gt;                    // object-like macro</span><br><span class="line">#define &lt;identifier&gt;(&lt;parameter list&gt;) &lt;replacement token list&gt;  // function-like macro, note parameters</span><br><span class="line">#undef &lt;identifier&gt;                                              // delete the macro</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p></p><h5> 1.1.1.4 特殊的宏与指令 </h5><br>对于某些特殊的宏在进行预处理的时候直接进行替换, 比如 C/C++语言定义了标准宏 <strong>__</strong>LINE__, <strong>__</strong>FILE__ 直接替换为当前行号和文件<p></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define WHERESTR  &quot;[file %s, line %d]: &quot;</span><br><span class="line">#define WHEREARG  __FILE__, __LINE__</span><br><span class="line">#define DEBUGPRINT2(...)       fprintf(stderr, __VA_ARGS__)</span><br><span class="line">#define DEBUGPRINT(_fmt, ...)  DEBUGPRINT2(WHERESTR _fmt, WHEREARG, __VA_ARGS__)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p></p><h5> 1.1.1.5 Token连接 </h5><br>Token即为符号, 可以理解为变量名<br>使用 <strong>##</strong> 运算符(Token Pasting Operator) 可以将两个Token连接成一个Token.<br><strong>##</strong> 运算符左侧或右侧如果是另一个宏名，这个宏名将不会被宏展开，而是按照字面值被当作一个token。因此，如果需要 <strong>##</strong> 运算符左右的宏名做宏展开，需要使用两层宏的嵌套使用，其中外层的宏展开时也一并把##运算符左右的宏名做宏展开。<p></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define DECLARE_STRUCT_TYPE(name) typedef struct name##_s name##_t</span><br><span class="line"></span><br><span class="line">DECLARE_STRUCT_TYPE(g_object); // Outputs: typedef struct g_object_s g_object_t;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h5> 1.1.1.6 用户定义的编译错误与警告 </h5>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#error &quot;error message&quot;</span><br><span class="line">#warning &quot;warning message&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h5> 1.1.1.7 编译器相关的预处理特性 </h5>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#paragm //提供了编译器特定的预处理功能</span><br><span class="line"></span><br><span class="line">//openmp</span><br><span class="line">#pragma omp parallel for</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<blockquote>
+<p></p><h5> <font color="0xacac">1.1.2 编译和优化 </font></h5><br>这个过程即为通过词法分析和语法分析，在确认所有的指令都符合语法规则之后，将其翻译成等价的中间代码表示或汇编代码.<br>这里进行汇编的过程是通过编译器进行执行的, 在编译器(Compiler)的作用下经过预处理器输入的程序就编译成了汇编代码.<p></p>
+</blockquote>
+<hr>
+<h3 id="1-2-汇编"><a href="#1-2-汇编" class="headerlink" title="1.2 汇编"></a>1.2 汇编</h3><blockquote>
+<p>汇编的过程实际上就是将汇编代码翻译成目标机器语言的过程. 生成的目标文件也就是与源程序在逻辑上等效的机器语言代码.<br>生成的机器语言代码被称为<a href="https://zh.wikipedia.org/wiki/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81" target="_blank" rel="noopener">目标代码</a>, 生成的二进制文件被称为目标文件, 也成为二进制文件.<br>典型的生成的目标文件的数据类型为:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">符号起始区块（BSS Block Started by Symbol的缩写）</span><br><span class="line">正文段（text segment 或译作代码段）//主要存放程序的指令, 可读可执行不可写</span><br><span class="line">数据段（data segment）//主要存放全局变量和静态数据. 可读可写可执行</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-链接过程"><a href="#2-链接过程" class="headerlink" title="2. 链接过程 "></a>2. 链接过程 <span id="lj"></span></h2><blockquote>
+<p>链接过程是由<a href="https://zh.wikipedia.org/wiki/%E9%93%BE%E6%8E%A5%E5%99%A8" target="_blank" rel="noopener">链接器</a>进行操作的. 链接器（英语：Linker），又译为链接器、连结器，是一个程序，将一个或多个由编译器或汇编器生成的目标文件外加库链接为一个可执行文件。<br>在编译过程中已经得到了可执行文件, 在这里主要讨论外加库链接. 现在的大多数操作系统都提供<a href="https://zh.wikipedia.org/zh-cn/%E9%9D%99%E6%80%81%E5%BA%93" target="_blank" rel="noopener">静态链接</a>和<a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93" target="_blank" rel="noopener">动态链接</a>这两种链接方式</p>
+</blockquote>
+<blockquote>
+<p>以下是连接过程:</p>
+</blockquote>
+<center><br><img src="/assert/compiler-linker/300px-Linker.png"><br></center>
+
+<blockquote>
+<h3 id="2-1-链接"><a href="#2-1-链接" class="headerlink" title="2.1 链接"></a>2.1 链接</h3><p></p><h5> <font color="0xacac">2.1.1 静态链接(编译时) </font></h5><br>链接器将函数的代码从其所在地（目标文件或静态链接库中）拷贝到最终的可执行程序中。这样该程序在被执行时这些代码将被装入到该进程的虚拟地址空间中。静态链接库实际上是一个目标文件的集合，其中的每个文件含有库中的一个或者一组相关函数的代码。<br>优点: 只需保证在开发者的计算机有正确的库文件，在以二进制发布时不需考虑在用户的计算机上库文件是否存在及版本问题.<br>缺点: 生成的可执行文件体积较大。当初正是为了避免此问题，才开发了动态库技术。<p></p>
+</blockquote>
+<blockquote>
+<p></p><h5> <font color="0xacac">2.1.1 动态链接 (加载, 运行时)</font></h5><br>所谓动态链接，就是把一些经常会共用的代码（静态链接的OBJ程序库）制作成共享函数库，当可执行文件调用到共享函数库内的函数时，操作系统才会把共享函数库函数加载存储器内，共享库函数本身的结构就是可执行的，当程序有需求时函数才进行链接。透过动态链接方式，存储器浪费的情形将可大幅降低。静态链接库则是直接链接到可执行文件。 在这些共享函数库存在库函数的拓展名一般为.DLL、.OCX（包含ActiveX控制的库）或者.DRV（旧式的系统驱动程序）这些共享函数库一般都是可执行的文件. 在动态链接时, 如果要使用直接调用文件即可.<p></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>经过链接器的作用形成可执行文件, 最后还要进行一步操作, 进行打包. 即将生成的可执行文件(.exe, .dll, .lib)文件进行打包. 交付给计算机即可运行.</p>
+</blockquote>
+<hr>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1.] <a href="http://blog.51cto.com/7905648/1297255" target="_blank" rel="noopener">http://blog.51cto.com/7905648/1297255</a><br>[2.] <a href="http://www.ruanyifeng.com/blog/2014/11/compiler.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/11/compiler.html</a><br>[3.] <a href="https://blog.csdn.net/shenjianxz/article/details/52130111" target="_blank" rel="noopener">https://blog.csdn.net/shenjianxz/article/details/52130111</a><br>[4.] <a href="https://zh.wikipedia.org/wiki/C预处理器" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/C预处理器</a><br>[5.] <a href="https://zh.wikipedia.org/wiki/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81</a><br>[6.] <a href="https://zh.wikipedia.org/wiki/%E9%93%BE%E6%8E%A5%E5%99%A8" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E9%93%BE%E6%8E%A5%E5%99%A8</a></p>
+
+                          
+                                    
+
+                                      
+                                        <div class="page-reward">
+                                          <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                            <div class="tooltip tooltip-east">
+                                              <span class="tooltip-item">
+              赏
+            </span>
+                                              <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assert/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                                            </div>
+                                            
+                                              
+                                                <div class="reward-box-item">
+                                                  <img class="reward-img" src="/assert/images/wechat.png">
+                                                  <span class="reward-type">微信</span>
+                                                </div>
+                                                
+                                        </div>
+                                        </span>
+                                        </span>
+                                        </span>
+        </div>
+        </a>
+  </div>
+  
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链接</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">g++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/24/markdown转pdf/" class="archive-article-date">
-  	<time datetime="2018-08-24T01:59:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/24/markdown转pdf/">markdown转pdf</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pdf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
+        			<a href="/categories/编译链接//" class="article-tag-list-link color5">编译链接</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+              
+
+                  
+                    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://YancyKahn.GitHub.io/2018/08/24/编译链接过程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                      
+                        <div class="clearfix"></div>
+    </div>
+    </div>
 </article>
+
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/24/markdown转pdf/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">markdown转pdf</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/23/markdown-toturial/" class="archive-article-date">
-  	<time datetime="2018-08-23T01:03:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
+      <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/23/markdown-toturial/">markdown-toturial</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">toturial</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#编译链接过程"><span class="toc-number">1.</span> <span class="toc-text">编译链接过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-编译过程"><span class="toc-number">1.1.</span> <span class="toc-text">1. 编译过程 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-编译"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 编译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.1.</span> <span class="toc-text"> 1.1.1 预处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.2.</span> <span class="toc-text"> 1.1.1.1 包含文件 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.3.</span> <span class="toc-text"> 1.1.1.2 条件编译 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.4.</span> <span class="toc-text"> 1.1.1.3 宏定义与扩展 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.5.</span> <span class="toc-text"> 1.1.1.4 特殊的宏与指令 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.6.</span> <span class="toc-text"> 1.1.1.5 Token连接 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.7.</span> <span class="toc-text"> 1.1.1.6 用户定义的编译错误与警告 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.8.</span> <span class="toc-text"> 1.1.1.7 编译器相关的预处理特性 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.9.</span> <span class="toc-text"> 1.1.2 编译和优化 </span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-汇编"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 汇编</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-链接过程"><span class="toc-number">1.2.</span> <span class="toc-text">2. 链接过程 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-链接"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 链接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text"> 2.1.1 静态链接(编译时) </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.2.</span> <span class="toc-text"> 2.1.1 动态链接 (加载, 运行时)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">2.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+        
+    </div>
+</aside>
 
-    
 
+        
+          
+
+                
+
+                      
+
+                            
+
+                                
+                                  <div id="gitment-ctn"></div>
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: '编译链接过程',
+  owner: 'YancyKahn',
+  repo: 'Blog-Comment',
+  oauth: {
+    client_id: 'd0913cdb332bb10f5dae',
+    client_secret: 'b8cd68b57c0341fce6ca7b849fb61fcf0366d0f2',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+
+                                    
+                                      
 
           </div>
         </div>
@@ -308,9 +498,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
