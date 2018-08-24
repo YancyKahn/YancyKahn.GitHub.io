@@ -166,18 +166,18 @@
     </h1>
   
 
-        
-        <a href="/2018/08/23/CF805B/" class="archive-article-date">
+          
+            <a href="/2018/08/23/CF805B/" class="archive-article-date">
   	<time datetime="2018-08-22T16:12:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
 </a>
-        
+              
       </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-        
-    	
-    	
-    	  <h1 id="CodeForces-805"><a href="#CodeForces-805" class="headerlink" title="CodeForces 805"></a>CodeForces 805</h1><p><div></div></p>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+                    
+                      
+                        <h1 id="CodeForces-805"><a href="#CodeForces-805" class="headerlink" title="CodeForces 805"></a>CodeForces 805</h1><p><div></div></p>
 <blockquote>
 <p>这道题其实挺好想到的, 首先不能是三个字符构成的回文, 并且要保证字符’c’的数量尽可能的少 <br><br>那么构成的字符串是这样的</p>
 </blockquote>
@@ -194,17 +194,17 @@ aabbaabb
 </blockquote>
 <p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  int n;</span><br><span class="line">  string s;</span><br><span class="line">  while (cin &gt;&gt; n) &#123;</span><br><span class="line">    s = &quot;&quot;;</span><br><span class="line">    bool flag = 1, flag2 = n % 2;</span><br><span class="line">    n -= flag2;</span><br><span class="line">    for (int i = 0; i &lt; n; i += 2) &#123;</span><br><span class="line"></span><br><span class="line">      if (flag)</span><br><span class="line">        s += &quot;aa&quot;;</span><br><span class="line">      else</span><br><span class="line">        s += &quot;bb&quot;;</span><br><span class="line">      flag = !flag;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (flag2) &#123;</span><br><span class="line">      if (flag)</span><br><span class="line">        s += &quot;a&quot;;</span><br><span class="line">      else</span><br><span class="line">        s += &quot;b&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">a</span><br><span class="line">aa</span><br><span class="line">aab</span><br><span class="line">aabb</span><br><span class="line">aabba</span><br><span class="line">aabbaa</span><br><span class="line">aabbaab</span><br><span class="line">aabbaabb</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
 
-    	
-    
+                          
+                                    
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
+                                      
+                                        <div class="page-reward">
+                                          <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                            <div class="tooltip tooltip-east">
+                                              <span class="tooltip-item">
               赏
             </span>
-            <span class="tooltip-content">
+                                              <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
@@ -213,26 +213,26 @@ aabbaabb
                     <div class="reward-box-item">
                       <img class="reward-img" src="/assert/images/alipay.jpg">
                       <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assert/images/wechat.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+                                            </div>
+                                            
+                                              
+                                                <div class="reward-box-item">
+                                                  <img class="reward-img" src="/assert/images/wechat.png">
+                                                  <span class="reward-type">微信</span>
+                                                </div>
+                                                
+                                        </div>
+                                        </span>
+                                        </span>
+                                        </span>
         </div>
-      
+        </a>
+  </div>
+  
     </div>
     <div class="article-info article-info-index">
       
-      
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -256,7 +256,7 @@ aabbaabb
 		</ul>
 	</div>
 
-      
+            
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -273,10 +273,10 @@ aabbaabb
 	</div>
 
 
-      
+              
 
-      
-        
+                  
+                    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -326,10 +326,10 @@ aabbaabb
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
+                      
+                        <div class="clearfix"></div>
     </div>
-  </div>
+    </div>
 </article>
 
   
@@ -352,8 +352,8 @@ aabbaabb
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+    
+      <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -383,17 +383,17 @@ aabbaabb
 </aside>
 
 
+        
+          
 
-  
+                
 
-  
+                      
 
-  
+                            
 
-  
-
-  
-  <div id="gitment-ctn"></div>
+                                
+                                  <div id="gitment-ctn"></div>
 <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
@@ -409,8 +409,8 @@ var gitment = new Gitment({
 gitment.render('gitment-ctn')
 </script>
 
-  
-
+                                    
+                                      
 
           </div>
         </div>
