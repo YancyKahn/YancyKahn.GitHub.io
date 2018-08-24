@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
-  <title>Category: markdown | YancyKahn</title>
+  <title>shell脚本调试 | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="YancyKahn&apos;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YancyKahn">
-<meta property="og:url" content="https://YancyKahn.GitHub.io/categories/markdown/index.html">
+  <meta name="description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.  直接调试  何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序">
+<meta name="keywords" content="debugging,shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell脚本调试">
+<meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/24/shell脚本调试/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="YancyKahn&apos;s Blog">
+<meta property="og:description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.  直接调试  何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-24T03:46:39.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YancyKahn">
-<meta name="twitter:description" content="YancyKahn&apos;s Blog">
+<meta name="twitter:title" content="shell脚本调试">
+<meta name="twitter:description" content="Shell 脚本调试方法我们在使用 Unix-like 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.  直接调试  何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 printf 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -153,128 +155,241 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-shell脚本调试" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/24/markdown转pdf/" class="archive-article-date">
-  	<time datetime="2018-08-24T01:59:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/24/markdown转pdf/">markdown转pdf</a>
+    <h1 class="article-title" itemprop="name">
+      shell脚本调试
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/24/shell脚本调试/" class="archive-article-date">
+  	<time datetime="2018-08-24T01:42:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Shell-脚本调试方法"><a href="#Shell-脚本调试方法" class="headerlink" title="Shell 脚本调试方法"></a>Shell 脚本调试方法</h1><p>我们在使用 <strong>Unix-like</strong> 系统时, shell编程是必不可少的, 在编写shell脚本的时候也不可避免会产生bug, 所以我们就需要学习shell脚本的调试方法.</p>
+<ol>
+<li><p>直接调试</p>
+<blockquote>
+<p>何为直接调试, 相信大家在编写c/c++程序调试时候都经常会在程序中加一个 <strong><em>printf</em></strong> 用来输出中间值达到调试的效果. 当然, 在shell脚本调试的时候这种方式也是同样适用的, 我们在程序中添加 <strong><em>echo</em></strong> 达到输出中间值的效果, 这里就不做过多的赘述.<br>如下面这个脚本</p>
+</blockquote>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">mkdir file_dir</span><br><span class="line">cd file_dir</span><br><span class="line">for ((i=0;i&lt;10;i++))</span><br><span class="line">do</span><br><span class="line">    file_name=file_$i.txt</span><br><span class="line">    touch $file_name</span><br><span class="line">    echo $file_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 Shell 脚本调试命令调试</p>
+</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assert/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assert/images/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">debugging</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pdf</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
+        			<a href="/categories/debugging//" class="article-tag-list-link color5">debugging</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://YancyKahn.GitHub.io/2018/08/24/shell脚本调试/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/23/markdown-toturial/" class="archive-article-date">
-  	<time datetime="2018-08-23T01:03:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/08/24/markdown转pdf/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          markdown转pdf
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/23/GDB基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GDB基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/23/markdown-toturial/">markdown-toturial</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">toturial</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell-脚本调试方法"><span class="toc-number">1.</span> <span class="toc-text">Shell 脚本调试方法</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div>
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'shell脚本调试',
+  owner: 'YancyKahn',
+  repo: 'Blog-Comment',
+  oauth: {
+    client_id: 'd0913cdb332bb10f5dae',
+    client_secret: 'b8cd68b57c0341fce6ca7b849fb61fcf0366d0f2',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+
+  
 
 
           </div>
@@ -308,10 +423,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
