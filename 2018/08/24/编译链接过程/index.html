@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
   <title>编译链接过程 | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程. 执行这个过程的程序被称为编译器 .下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程   1. 编译过程 C文件编译">
+  <meta name="description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过程C文件编译过程又可分为: 编译 和 汇编 1.">
 <meta name="keywords" content="编译,链接,g++,gcc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译链接过程">
 <meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/24/编译链接过程/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程. 执行这个过程的程序被称为编译器 .下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程   1. 编译过程 C文件编译">
+<meta property="og:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过程C文件编译过程又可分为: 编译 和 汇编 1.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://yancykahn.github.io/assert/compiler-linker/1.png">
 <meta property="og:image" content="https://yancykahn.github.io/assert/compiler-linker/300px-Linker.png">
-<meta property="og:updated_time" content="2018-08-24T15:08:14.710Z">
+<meta property="og:updated_time" content="2018-08-24T15:11:49.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译链接过程">
-<meta name="twitter:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程. 执行这个过程的程序被称为编译器 .下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程   1. 编译过程 C文件编译">
+<meta name="twitter:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过程C文件编译过程又可分为: 编译 和 汇编 1.">
 <meta name="twitter:image" content="https://yancykahn.github.io/assert/compiler-linker/1.png">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
@@ -180,11 +180,12 @@
           
                     
                       
-                        <h1 id="编译链接过程"><a href="#编译链接过程" class="headerlink" title="编译链接过程"></a>编译链接过程</h1><p>C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程. 执行这个过程的程序被称为<a href="https://zh.wikipedia.org/wiki/%E7%B7%A8%E8%AD%AF%E5%99%A8" target="_blank" rel="noopener">编译器</a> .<br>下面是从源代码到可执行文件的整个编译链接的过程:</p>
+                        <h1 id="编译链接过程"><a href="#编译链接过程" class="headerlink" title="编译链接过程"></a>编译链接过程</h1><p>C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.<br>下面是从源代码到可执行文件的整个编译链接的过程:</p>
 <p>整个编译链接过程无非就分为 <a href="#by"><strong>编译过程</strong></a> 和 <a href="#lj"><strong>链接过程</strong></a></p>
 <center><br><img src="/assert/compiler-linker/1.png"><br></center>
 
-<h2 id="1-编译过程"><a href="#1-编译过程" class="headerlink" title="1. 编译过程 "></a>1. 编译过程 <span id="by"></span></h2><p>C文件编译过程又可分为: <strong>编译</strong> 和 <strong>汇编</strong></p>
+<p><span id="by"></span></p>
+<h2 id="1-编译过程"><a href="#1-编译过程" class="headerlink" title="1. 编译过程"></a>1. 编译过程</h2><p>C文件编译过程又可分为: <strong>编译</strong> 和 <strong>汇编</strong></p>
 <h3 id="1-1-编译"><a href="#1-1-编译" class="headerlink" title="1.1 编译"></a>1.1 编译</h3><blockquote>
 <p>编译是指编译器读取源程序(字符流), 对之进行词法和语法的分析, 将高级语言指令转换为功能等效的汇编代码.</p>
 </blockquote>
@@ -241,7 +242,8 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">符号起始区块（BSS Block Started by Symbol的缩写）</span><br><span class="line">正文段（text segment 或译作代码段）//主要存放程序的指令, 可读可执行不可写</span><br><span class="line">数据段（data segment）//主要存放全局变量和静态数据. 可读可写可执行</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="2-链接过程"><a href="#2-链接过程" class="headerlink" title="2. 链接过程 "></a>2. 链接过程 <span id="lj"></span></h2><blockquote>
+<p><span id="lj"></span></p>
+<h2 id="2-链接过程"><a href="#2-链接过程" class="headerlink" title="2. 链接过程"></a>2. 链接过程</h2><blockquote>
 <p>链接过程是由<a href="https://zh.wikipedia.org/wiki/%E9%93%BE%E6%8E%A5%E5%99%A8" target="_blank" rel="noopener">链接器</a>进行操作的. 链接器（英语：Linker），又译为链接器、连结器，是一个程序，将一个或多个由编译器或汇编器生成的目标文件外加库链接为一个可执行文件。<br>在编译过程中已经得到了可执行文件, 在这里主要讨论外加库链接. 现在的大多数操作系统都提供<a href="https://zh.wikipedia.org/zh-cn/%E9%9D%99%E6%80%81%E5%BA%93" target="_blank" rel="noopener">静态链接</a>和<a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93" target="_blank" rel="noopener">动态链接</a>这两种链接方式</p>
 </blockquote>
 <blockquote>
@@ -428,7 +430,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#编译链接过程"><span class="toc-number">1.</span> <span class="toc-text">编译链接过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-编译过程"><span class="toc-number">1.1.</span> <span class="toc-text">1. 编译过程 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-编译"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 编译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.1.</span> <span class="toc-text"> 1.1.1 预处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.2.</span> <span class="toc-text"> 1.1.1.1 包含文件 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.3.</span> <span class="toc-text"> 1.1.1.2 条件编译 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.4.</span> <span class="toc-text"> 1.1.1.3 宏定义与扩展 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.5.</span> <span class="toc-text"> 1.1.1.4 特殊的宏与指令 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.6.</span> <span class="toc-text"> 1.1.1.5 Token连接 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.7.</span> <span class="toc-text"> 1.1.1.6 用户定义的编译错误与警告 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.8.</span> <span class="toc-text"> 1.1.1.7 编译器相关的预处理特性 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.9.</span> <span class="toc-text"> 1.1.2 编译和优化 </span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-汇编"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 汇编</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-链接过程"><span class="toc-number">1.2.</span> <span class="toc-text">2. 链接过程 </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-链接"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 链接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text"> 2.1.1 静态链接(编译时) </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.2.</span> <span class="toc-text"> 2.1.1 动态链接 (加载, 运行时)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">2.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#编译链接过程"><span class="toc-number">1.</span> <span class="toc-text">编译链接过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-编译过程"><span class="toc-number">1.1.</span> <span class="toc-text">1. 编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-编译"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 编译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.1.</span> <span class="toc-text"> 1.1.1 预处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.2.</span> <span class="toc-text"> 1.1.1.1 包含文件 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.3.</span> <span class="toc-text"> 1.1.1.2 条件编译 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.4.</span> <span class="toc-text"> 1.1.1.3 宏定义与扩展 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.5.</span> <span class="toc-text"> 1.1.1.4 特殊的宏与指令 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.6.</span> <span class="toc-text"> 1.1.1.5 Token连接 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.7.</span> <span class="toc-text"> 1.1.1.6 用户定义的编译错误与警告 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.8.</span> <span class="toc-text"> 1.1.1.7 编译器相关的预处理特性 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.9.</span> <span class="toc-text"> 1.1.2 编译和优化 </span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-汇编"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 汇编</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-链接过程"><span class="toc-number">1.2.</span> <span class="toc-text">2. 链接过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-链接"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 链接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text"> 2.1.1 静态链接(编译时) </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.2.</span> <span class="toc-text"> 2.1.1 动态链接 (加载, 运行时)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">2.</span> <span class="toc-text">参考文献</span></a></li></ol>
                     </div>
                 </span>
             </div>
