@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
   <title>CF805D | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="CodeForces 805 D题目大意: 如果有[ab], 那么就转化为[bba], 问最少需要多少次转化(MOD 1e9+7) 分析:     b前每有一个a都要多进行两倍的转化操作, 因为每次转化都会多生成一个b, 这个b还要与后面的a进行转化操作, 所以就相当于进行2倍的操作 123456789101112131415161718192021222324252627#include &amp;lt">
+  <meta name="description" content="CodeForces 805 D 题目大意:如果有[ab], 那么就转化为[bba], 问最少需要多少次转化(MOD 1e9+7)分析:    b前每有一个a都要多进行两倍的转化操作, 因为每次转化都会多生成一个b, 这个b还要与后面的a进行转化操作, 所以就相当于进行2倍的操作  123456789101112131415161718192021222324252627#include &amp;lt;">
 <meta name="keywords" content="CodeForces">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF805D">
 <meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/23/CF805D/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="CodeForces 805 D题目大意: 如果有[ab], 那么就转化为[bba], 问最少需要多少次转化(MOD 1e9+7) 分析:     b前每有一个a都要多进行两倍的转化操作, 因为每次转化都会多生成一个b, 这个b还要与后面的a进行转化操作, 所以就相当于进行2倍的操作 123456789101112131415161718192021222324252627#include &amp;lt">
+<meta property="og:description" content="CodeForces 805 D 题目大意:如果有[ab], 那么就转化为[bba], 问最少需要多少次转化(MOD 1e9+7)分析:    b前每有一个a都要多进行两倍的转化操作, 因为每次转化都会多生成一个b, 这个b还要与后面的a进行转化操作, 所以就相当于进行2倍的操作  123456789101112131415161718192021222324252627#include &amp;lt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-23T08:18:10.067Z">
+<meta property="og:updated_time" content="2018-08-24T04:39:48.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CF805D">
-<meta name="twitter:description" content="CodeForces 805 D题目大意: 如果有[ab], 那么就转化为[bba], 问最少需要多少次转化(MOD 1e9+7) 分析:     b前每有一个a都要多进行两倍的转化操作, 因为每次转化都会多生成一个b, 这个b还要与后面的a进行转化操作, 所以就相当于进行2倍的操作 123456789101112131415161718192021222324252627#include &amp;lt">
+<meta name="twitter:description" content="CodeForces 805 D 题目大意:如果有[ab], 那么就转化为[bba], 问最少需要多少次转化(MOD 1e9+7)分析:    b前每有一个a都要多进行两倍的转化操作, 因为每次转化都会多生成一个b, 这个b还要与后面的a进行转化操作, 所以就相当于进行2倍的操作  123456789101112131415161718192021222324252627#include &amp;lt;">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -177,11 +177,10 @@
           
                     
                       
-                        <h1 id="CodeForces-805-D"><a href="#CodeForces-805-D" class="headerlink" title="CodeForces 805 D"></a>CodeForces 805 D</h1><pre><code>题目大意:
-如果有[ab], 那么就转化为[bba], 问最少需要多少次转化(MOD 1e9+7)
-分析:
-    b前每有一个a都要多进行两倍的转化操作, 因为每次转化都会多生成一个b, 这个b还要与后面的a进行转化操作, 所以就相当于进行2倍的操作
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line">const int MAXN = 1e6 + 10;</span><br><span class="line">const ll MOD = 1e9 + 7;</span><br><span class="line">int main() &#123;</span><br><span class="line">  string s;</span><br><span class="line">  while (cin &gt;&gt; s) &#123;</span><br><span class="line">    ll sum = 0;</span><br><span class="line">    int len = s.length();</span><br><span class="line">    int x = 0;</span><br><span class="line">    for (int i = len - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">      if (s[i] == &apos;b&apos;) &#123;</span><br><span class="line">        x++;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        sum += x;</span><br><span class="line">        sum %= MOD;</span><br><span class="line">        x *= 2;</span><br><span class="line">        x %= MOD;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                        <h1 id="CodeForces-805-D"><a href="#CodeForces-805-D" class="headerlink" title="CodeForces 805 D"></a>CodeForces 805 D</h1><blockquote>
+<p>题目大意:<br>如果有[ab], 那么就转化为[bba], 问最少需要多少次转化(MOD 1e9+7)<br>分析:<br>    b前每有一个a都要多进行两倍的转化操作, 因为每次转化都会多生成一个b, 这个b还要与后面的a进行转化操作, 所以就相当于进行2倍的操作</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line">const int MAXN = 1e6 + 10;</span><br><span class="line">const ll MOD = 1e9 + 7;</span><br><span class="line">int main() &#123;</span><br><span class="line">  string s;</span><br><span class="line">  while (cin &gt;&gt; s) &#123;</span><br><span class="line">    ll sum = 0;</span><br><span class="line">    int len = s.length();</span><br><span class="line">    int x = 0;</span><br><span class="line">    for (int i = len - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">      if (s[i] == &apos;b&apos;) &#123;</span><br><span class="line">        x++;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        sum += x;</span><br><span class="line">        sum %= MOD;</span><br><span class="line">        x *= 2;</span><br><span class="line">        x %= MOD;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                           
                                     
