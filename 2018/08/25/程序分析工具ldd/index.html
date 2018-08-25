@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
-  <title>程序分析工具ldd和nm | YancyKahn</title>
+  <title>程序分析工具ldd | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux 下的程序分析工具我们要分析程序, 必不可少的要使用程序分析工具, idd就是一个有效的程序分析工具. 1. 何为idd ldd (List Dynamic Dependencies) 可以知道, ldd工具的功能就是列出程序的动态依赖项, 以便于我们来解决程序因为某个依赖项不能运行的问题  123456789//ldd工具的参数表Usage: ldd [OPTION]... FILE">
-<meta name="keywords" content="程序分析工具,ldd,nm">
+  <meta name="description" content="Linux 下的程序分析工具我们要分析程序, 必不可少的要使用程序分析工具, ldd就是一个有效的程序分析工具. 1. 何为ldd ldd (List Dynamic Dependencies) 可以知道, ldd工具的功能就是列出程序的动态依赖项, 以便于我们来解决程序因为某个依赖项不能运行的问题  123456789//ldd工具的参数表Usage: ldd [OPTION]... FILE">
+<meta name="keywords" content="程序分析工具,ldd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="程序分析工具ldd和nm">
-<meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/25/程序分析工具ldd和nm/index.html">
+<meta property="og:title" content="程序分析工具ldd">
+<meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/25/程序分析工具ldd/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="Linux 下的程序分析工具我们要分析程序, 必不可少的要使用程序分析工具, idd就是一个有效的程序分析工具. 1. 何为idd ldd (List Dynamic Dependencies) 可以知道, ldd工具的功能就是列出程序的动态依赖项, 以便于我们来解决程序因为某个依赖项不能运行的问题  123456789//ldd工具的参数表Usage: ldd [OPTION]... FILE">
+<meta property="og:description" content="Linux 下的程序分析工具我们要分析程序, 必不可少的要使用程序分析工具, ldd就是一个有效的程序分析工具. 1. 何为ldd ldd (List Dynamic Dependencies) 可以知道, ldd工具的功能就是列出程序的动态依赖项, 以便于我们来解决程序因为某个依赖项不能运行的问题  123456789//ldd工具的参数表Usage: ldd [OPTION]... FILE">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-25T05:55:06.207Z">
+<meta property="og:updated_time" content="2018-08-25T06:07:28.831Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="程序分析工具ldd和nm">
-<meta name="twitter:description" content="Linux 下的程序分析工具我们要分析程序, 必不可少的要使用程序分析工具, idd就是一个有效的程序分析工具. 1. 何为idd ldd (List Dynamic Dependencies) 可以知道, ldd工具的功能就是列出程序的动态依赖项, 以便于我们来解决程序因为某个依赖项不能运行的问题  123456789//ldd工具的参数表Usage: ldd [OPTION]... FILE">
+<meta name="twitter:title" content="程序分析工具ldd">
+<meta name="twitter:description" content="Linux 下的程序分析工具我们要分析程序, 必不可少的要使用程序分析工具, ldd就是一个有效的程序分析工具. 1. 何为ldd ldd (List Dynamic Dependencies) 可以知道, ldd工具的功能就是列出程序的动态依赖项, 以便于我们来解决程序因为某个依赖项不能运行的问题  123456789//ldd工具的参数表Usage: ldd [OPTION]... FILE">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -155,19 +155,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-程序分析工具ldd和nm" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-程序分析工具ldd" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      程序分析工具ldd和nm
+      程序分析工具ldd
     </h1>
   
 
           
-            <a href="/2018/08/25/程序分析工具ldd和nm/" class="archive-article-date">
+            <a href="/2018/08/25/程序分析工具ldd/" class="archive-article-date">
   	<time datetime="2018-08-25T05:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
 </a>
               
@@ -178,14 +178,14 @@
                     
                       
                         <hr>
-<h1 id="Linux-下的程序分析工具"><a href="#Linux-下的程序分析工具" class="headerlink" title="Linux 下的程序分析工具"></a>Linux 下的程序分析工具</h1><p>我们要分析程序, 必不可少的要使用程序分析工具, idd就是一个有效的程序分析工具.</p>
-<h2 id="1-何为idd"><a href="#1-何为idd" class="headerlink" title="1. 何为idd"></a>1. 何为idd</h2><blockquote>
+<h1 id="Linux-下的程序分析工具"><a href="#Linux-下的程序分析工具" class="headerlink" title="Linux 下的程序分析工具"></a>Linux 下的程序分析工具</h1><p>我们要分析程序, 必不可少的要使用程序分析工具, ldd就是一个有效的程序分析工具.</p>
+<h2 id="1-何为ldd"><a href="#1-何为ldd" class="headerlink" title="1. 何为ldd"></a>1. 何为ldd</h2><blockquote>
 <p>ldd (List Dynamic Dependencies) 可以知道, ldd工具的功能就是列出程序的动态依赖项, 以便于我们来解决程序因为某个依赖项不能运行的问题</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//ldd工具的参数表</span><br><span class="line"></span><br><span class="line">Usage: ldd [OPTION]... FILE...</span><br><span class="line">      --help              print this help and exit</span><br><span class="line">      --version           print version information and exit</span><br><span class="line">  -d, --data-relocs       process data relocations</span><br><span class="line">  -r, --function-relocs   process data and function relocations</span><br><span class="line">  -u, --unused            print unused direct dependencies</span><br><span class="line">  -v, --verbose           print all information</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//ldd工具的参数表</span><br><span class="line"></span><br><span class="line">Usage: ldd [OPTION]... FILE...</span><br><span class="line">      --help              print this help and exit</span><br><span class="line">      --version           print version information and exit</span><br><span class="line">  -d, --data-relocs       process data relocations          </span><br><span class="line">  -r, --function-relocs   process data and function relocations</span><br><span class="line">  -u, --unused            print unused direct dependencies</span><br><span class="line">  -v, --verbose           print all information</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="2-程序分析"><a href="#2-程序分析" class="headerlink" title="2. 程序分析"></a>2. 程序分析</h2><p>以下面程序为例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; &quot;hello world&quot; &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>进行程序分析, 使用idd工具查看依赖项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldd main.out</span><br></pre></td></tr></table></figure></p>
+<p>进行程序分析, 使用ldd工具查看依赖项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldd main.out</span><br></pre></td></tr></table></figure></p>
 <p>输出下面的结果:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">linux-vdso.so.1 =&gt;  (0x00007fffdf366000)</span><br><span class="line">libstdc++.so.6 =&gt; /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f2c2eeb0000)</span><br><span class="line">libc.so.6 =&gt; /lib/x86_64-linux-gnu/libc.so.6 (0x00007f2c2eae0000)</span><br><span class="line">libm.so.6 =&gt; /lib/x86_64-linux-gnu/libm.so.6 (0x00007f2c2e7d0000)</span><br><span class="line">/lib64/ld-linux-x86-64.so.2 (0x00007f2c2f400000)</span><br><span class="line">libgcc_s.so.1 =&gt; /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007f2c2e5a0000)</span><br></pre></td></tr></table></figure></p>
 <p>把它转化一下:</p>
 <table>
@@ -283,10 +283,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ldd</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">nm</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -352,7 +348,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://YancyKahn.GitHub.io/2018/08/25/程序分析工具ldd和nm/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://YancyKahn.GitHub.io/2018/08/25/程序分析工具ldd/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -395,7 +391,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-下的程序分析工具"><span class="toc-number">1.</span> <span class="toc-text">Linux 下的程序分析工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-何为idd"><span class="toc-number">1.1.</span> <span class="toc-text">1. 何为idd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-程序分析"><span class="toc-number">1.2.</span> <span class="toc-text">2. 程序分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">2.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-下的程序分析工具"><span class="toc-number">1.</span> <span class="toc-text">Linux 下的程序分析工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-何为ldd"><span class="toc-number">1.1.</span> <span class="toc-text">1. 何为ldd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-程序分析"><span class="toc-number">1.2.</span> <span class="toc-text">2. 程序分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">2.</span> <span class="toc-text">参考文献</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -420,7 +416,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: '程序分析工具ldd和nm',
+  id: '程序分析工具ldd',
   owner: 'YancyKahn',
   repo: 'Blog-Comment',
   oauth: {
