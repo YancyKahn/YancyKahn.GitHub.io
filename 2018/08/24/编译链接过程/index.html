@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
   <title>编译链接过程 | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过程C文件编译过程又可分为: 编译 和 汇编 1.">
+  <meta name="description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.    本文篇幅较长, 想直接看分析过程点击这里下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过">
 <meta name="keywords" content="编译,链接,g++,gcc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译链接过程">
 <meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/24/编译链接过程/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过程C文件编译过程又可分为: 编译 和 汇编 1.">
+<meta property="og:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.    本文篇幅较长, 想直接看分析过程点击这里下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://yancykahn.github.io/assert/compiler-linker/1.png">
 <meta property="og:image" content="https://yancykahn.github.io/assert/compiler-linker/300px-Linker.png">
-<meta property="og:updated_time" content="2018-08-24T15:11:49.433Z">
+<meta property="og:updated_time" content="2018-08-25T04:43:02.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译链接过程">
-<meta name="twitter:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过程C文件编译过程又可分为: 编译 和 汇编 1.">
+<meta name="twitter:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.    本文篇幅较长, 想直接看分析过程点击这里下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过">
 <meta name="twitter:image" content="https://yancykahn.github.io/assert/compiler-linker/1.png">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
@@ -180,7 +180,7 @@
           
                     
                       
-                        <h1 id="编译链接过程"><a href="#编译链接过程" class="headerlink" title="编译链接过程"></a>编译链接过程</h1><p>C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.<br>下面是从源代码到可执行文件的整个编译链接的过程:</p>
+                        <h1 id="编译链接过程"><a href="#编译链接过程" class="headerlink" title="编译链接过程"></a>编译链接过程</h1><p>C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.    <font color="pink">本文篇幅较长, 想直接看分析过程点击<a href="#fxgc">这里</a></font><br>下面是从源代码到可执行文件的整个编译链接的过程:</p>
 <p>整个编译链接过程无非就分为 <a href="#by"><strong>编译过程</strong></a> 和 <a href="#lj"><strong>链接过程</strong></a></p>
 <center><br><img src="/assert/compiler-linker/1.png"><br></center>
 
@@ -191,7 +191,7 @@
 </blockquote>
 <p><font size="3" color="green"></font></p>
 <blockquote>
-<p>简而言之就是将 高级语言(我们这里指C源文件) 代码 转化为 汇编代码<br><br>高级语言指令转化为汇编代码有需要两个过程:</p>
+<p>简而言之就是将 高级语言(我们这里指C源文件) 代码 转化为 汇编代码<br><br>高级语言指令转化为汇编代码有需要两个过程:<br><span id="ycl"></span></p>
 <p></p><h5> <font color="0xacac">1.1.1 预处理</font></h5><br>预处理过程通过<a href="https://zh.wikipedia.org/wiki/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8" target="_blank" rel="noopener">预处理器</a>来完成, 预处理器是程序中处理输入数据，产生能用来输入到其他程序的数据的程序。输出被称为输入数据预处理过的形式，常用在之后的程序比如编译器中.<p></p>
 </blockquote>
 <blockquote>
@@ -255,14 +255,88 @@
 <h3 id="2-1-链接"><a href="#2-1-链接" class="headerlink" title="2.1 链接"></a>2.1 链接</h3><p></p><h5> <font color="0xacac">2.1.1 静态链接(编译时) </font></h5><br>链接器将函数的代码从其所在地（目标文件或静态链接库中）拷贝到最终的可执行程序中。这样该程序在被执行时这些代码将被装入到该进程的虚拟地址空间中。静态链接库实际上是一个目标文件的集合，其中的每个文件含有库中的一个或者一组相关函数的代码。<br>优点: 只需保证在开发者的计算机有正确的库文件，在以二进制发布时不需考虑在用户的计算机上库文件是否存在及版本问题.<br>缺点: 生成的可执行文件体积较大。当初正是为了避免此问题，才开发了动态库技术。<p></p>
 </blockquote>
 <blockquote>
-<p></p><h5> <font color="0xacac">2.1.1 动态链接 (加载, 运行时)</font></h5><br>所谓动态链接，就是把一些经常会共用的代码（静态链接的OBJ程序库）制作成共享函数库，当可执行文件调用到共享函数库内的函数时，操作系统才会把共享函数库函数加载存储器内，共享库函数本身的结构就是可执行的，当程序有需求时函数才进行链接。透过动态链接方式，存储器浪费的情形将可大幅降低。静态链接库则是直接链接到可执行文件。 在这些共享函数库存在库函数的拓展名一般为.DLL、.OCX（包含ActiveX控制的库）或者.DRV（旧式的系统驱动程序）这些共享函数库一般都是可执行的文件. 在动态链接时, 如果要使用直接调用文件即可.<p></p>
+<p></p><h5> <font color="0xacac">2.1.1 动态链接 (加载, 运行时)</font></h5><br>所谓动态链接，就是把一些经常会共用的代码（静态链接的OBJ程序库）制作成DLL档，当可执行文件调用到DLL档内的函数时，操作系统才会把DLL档加载存储器内，DLL档本身的结构就是可执行档，当程序有需求时函数才进行链接。透过动态链接方式，存储器浪费的情形将可大幅降低。静态链接库则是直接链接到可执行文件。<br>DLL档本身也是可执行文件, 在程序执行的时候直接进行动态调用即可.<p></p>
 </blockquote>
+<blockquote>
+<h5> <font color="0xacac">2.1.3 静态链接和动态链接的比较 </font></h5>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>静态链接</th>
+<th>动态链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编译时</td>
+<td>加载, 运行时</td>
+</tr>
+<tr>
+<td>lib在编译时就组装进exe文件</td>
+<td>程序运行时exe文件可以动态的加载dll</td>
+</tr>
+<tr>
+<td>不用考虑计算机库文件版本</td>
+<td>节省内存, 维护性高</td>
+</tr>
+<tr>
+<td>整个软件包只有exe文件</td>
+<td>软件包中有exe和dll</td>
+</tr>
+<tr>
+<td>lib文件是外部函数和变量, 在编译时复制进目标程序, 后缀为.a</td>
+<td>dll文件本身是可执行的, 在运行时动态链接, 可以包含源码, 数据, 资源的多种组合, 后缀为.so</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <blockquote>
 <p>经过链接器的作用形成可执行文件, 最后还要进行一步操作, 进行打包. 即将生成的可执行文件(.exe, .dll, .lib)文件进行打包. 交付给计算机即可运行.</p>
 </blockquote>
 <hr>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1.] <a href="http://blog.51cto.com/7905648/1297255" target="_blank" rel="noopener">http://blog.51cto.com/7905648/1297255</a><br>[2.] <a href="http://www.ruanyifeng.com/blog/2014/11/compiler.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/11/compiler.html</a><br>[3.] <a href="https://blog.csdn.net/shenjianxz/article/details/52130111" target="_blank" rel="noopener">https://blog.csdn.net/shenjianxz/article/details/52130111</a><br>[4.] <a href="https://zh.wikipedia.org/wiki/C预处理器" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/C预处理器</a><br>[5.] <a href="https://zh.wikipedia.org/wiki/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81</a><br>[6.] <a href="https://zh.wikipedia.org/wiki/%E9%93%BE%E6%8E%A5%E5%99%A8" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E9%93%BE%E6%8E%A5%E5%99%A8</a></p>
+<p><span id="fxgc"></span></p>
+<h2 id="3-编译链接过程分析"><a href="#3-编译链接过程分析" class="headerlink" title="3. 编译链接过程分析"></a>3. 编译链接过程分析</h2><p>我们创建三个文件分别为<a href="\assert\compiler-linker\code\test.h">test.h</a>, <a href="\assert\compiler-linker\code\test.c">test.c</a>和<a href="\assert\compiler-linker\code\main.c">main.c</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">//test.c文件</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#define __PI__ 3.141592654</span><br><span class="line">void print_hello()&#123;</span><br><span class="line">    printf(&quot;hello world!\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line">void print_string(char *s)&#123;</span><br><span class="line">    printf(&quot;%s\n&quot;, s);</span><br><span class="line">&#125;</span><br><span class="line">double getArea(int r)&#123;</span><br><span class="line">    return r*r*__PI__;</span><br><span class="line">&#125;</span><br><span class="line">//-------------------------------------------------</span><br><span class="line">//test.h文件</span><br><span class="line">//test.h</span><br><span class="line">void print_hello();</span><br><span class="line">void print_string(char *s);</span><br><span class="line">double getArea(int r);</span><br><span class="line"></span><br><span class="line">//-------------------------------------------------</span><br><span class="line">//main.c文件</span><br><span class="line">#include &quot;test.h&quot;</span><br><span class="line">#define __HELLO__ print_hello();</span><br><span class="line">#define __TEMP__ print_string(&quot;hello c!&quot;);</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    //test.h --&gt; hello</span><br><span class="line">    print_hello();</span><br><span class="line">    //__HELLO__</span><br><span class="line">    __HELLO__</span><br><span class="line">    //__TEMP__</span><br><span class="line">    __TEMP__</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="3-1-预处理操作"><a href="#3-1-预处理操作" class="headerlink" title="3.1 预处理操作"></a>3.1 预处理操作</h3></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -E main.c | tee main.i</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="\assert\compiler-linker\code\test.i">预处理代码</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 1 &quot;main.c&quot;</span><br><span class="line"># 1 &quot;&lt;built-in&gt;&quot;</span><br><span class="line"># 1 &quot;&lt;command-line&gt;&quot;</span><br><span class="line"># 1 &quot;main.c&quot;</span><br><span class="line"># 1 &quot;test.h&quot; 1</span><br><span class="line"></span><br><span class="line">void print_hello();</span><br><span class="line">void print_string(char *s);</span><br><span class="line">double getArea(int r);</span><br><span class="line"># 2 &quot;main.c&quot; 2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line"></span><br><span class="line">    print_hello();</span><br><span class="line"></span><br><span class="line">    print_hello();</span><br><span class="line"></span><br><span class="line">    print_string(&quot;hello c!&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以发现, 预处理操作将定义的宏全部展开, 包含头文件, 去掉注释等 具体的预处理操作详见<a href="#ycl">1.1.1</a></p>
+</blockquote>
+<blockquote>
+<h3 id="3-2-编译"><a href="#3-2-编译" class="headerlink" title="3.2 编译"></a>3.2 编译</h3></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -S main.c</span><br></pre></td></tr></table></figure>
+<p>编译生成后缀为.s的<a href="\assert\compiler-linker\code\main.s">汇编代码</a>, 拿出main函数来分析以下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">_main:</span><br><span class="line">LFB13:</span><br><span class="line">	.cfi_startproc</span><br><span class="line">	pushl	%ebp</span><br><span class="line">	.cfi_def_cfa_offset 8</span><br><span class="line">	.cfi_offset 5, -8</span><br><span class="line">	movl	%esp, %ebp</span><br><span class="line">	.cfi_def_cfa_register 5</span><br><span class="line">	andl	$-16, %esp</span><br><span class="line">	subl	$16, %esp</span><br><span class="line">	call	___main</span><br><span class="line">	call	_print_hello      //调用_print_hello函数</span><br><span class="line">	call	_print_hello      //调用_print_hello函数</span><br><span class="line">	movl	$LC3, (%esp)</span><br><span class="line">	call	_print_string     //调用_print_string函数</span><br><span class="line">	movl	$0, %eax</span><br><span class="line">	leave</span><br><span class="line">	.cfi_restore 5</span><br><span class="line">	.cfi_def_cfa 4, 4</span><br><span class="line">	ret</span><br><span class="line">	.cfi_endproc</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="3-2-汇编"><a href="#3-2-汇编" class="headerlink" title="3.2 汇编"></a>3.2 汇编</h3><p>汇编生成机器码.o文件, 我们是看不懂的.<br><a href="\assert\compiler-linker\code\main.o">main.o</a> 和 <a href="\assert\compiler-linker\code\test.o">test.o</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//对于.c文件</span><br><span class="line">gcc -c main.c</span><br><span class="line">gcc -c test.c</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h3 id="3-2-链接"><a href="#3-2-链接" class="headerlink" title="3.2 链接"></a>3.2 链接</h3><p>对于得到的上一步汇编得到的.o文件我们进行链接.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o main main.o</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里发现报错了.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">main.o:main.c:(.text+0xf): undefined reference to `print_hello&apos;</span><br><span class="line">main.o:main.c:(.text+0x14): undefined reference to `print_hello&apos;</span><br><span class="line">main.o:main.c:(.text+0x20): undefined reference to `print_string</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>是因为test.o文件没有打包成我们需要的lib格式文件, 即.a后缀的文件. 进行打包. 打包后的<a href="(\assert\compiler-linker\code\test.a">test.a</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar -rc test.a test.o</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>再次链接</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o main main.o ./test.a</span><br></pre></td></tr></table></figure>
+<p>链接成功, 执行main.exe</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hello world!</span><br><span class="line">hello world!</span><br><span class="line">hello c!</span><br></pre></td></tr></table></figure>
+<p>以上就是整个编译链接的过程了, 喜欢的话点个赞.</p>
+<hr>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1.] <a href="http://blog.51cto.com/7905648/1297255" target="_blank" rel="noopener">http://blog.51cto.com/7905648/1297255</a><br>[2.] <a href="http://www.ruanyifeng.com/blog/2014/11/compiler.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2014/11/compiler.html</a><br>[3.] <a href="https://blog.csdn.net/shenjianxz/article/details/52130111" target="_blank" rel="noopener">https://blog.csdn.net/shenjianxz/article/details/52130111</a><br>[4.] <a href="https://zh.wikipedia.org/wiki/C预处理器" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/C预处理器</a><br>[5.] <a href="https://zh.wikipedia.org/wiki/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81</a><br>[6.] <a href="https://zh.wikipedia.org/wiki/%E9%93%BE%E6%8E%A5%E5%99%A8" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E9%93%BE%E6%8E%A5%E5%99%A8</a><br>[7.] <a href="https://blog.csdn.net/shaderdx/article/details/49929147" target="_blank" rel="noopener">https://blog.csdn.net/shaderdx/article/details/49929147</a></p>
 
                           
                                     
@@ -430,7 +504,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#编译链接过程"><span class="toc-number">1.</span> <span class="toc-text">编译链接过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-编译过程"><span class="toc-number">1.1.</span> <span class="toc-text">1. 编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-编译"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 编译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.1.</span> <span class="toc-text"> 1.1.1 预处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.2.</span> <span class="toc-text"> 1.1.1.1 包含文件 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.3.</span> <span class="toc-text"> 1.1.1.2 条件编译 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.4.</span> <span class="toc-text"> 1.1.1.3 宏定义与扩展 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.5.</span> <span class="toc-text"> 1.1.1.4 特殊的宏与指令 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.6.</span> <span class="toc-text"> 1.1.1.5 Token连接 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.7.</span> <span class="toc-text"> 1.1.1.6 用户定义的编译错误与警告 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.8.</span> <span class="toc-text"> 1.1.1.7 编译器相关的预处理特性 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.9.</span> <span class="toc-text"> 1.1.2 编译和优化 </span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-汇编"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 汇编</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-链接过程"><span class="toc-number">1.2.</span> <span class="toc-text">2. 链接过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-链接"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 链接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text"> 2.1.1 静态链接(编译时) </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.2.</span> <span class="toc-text"> 2.1.1 动态链接 (加载, 运行时)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">2.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#编译链接过程"><span class="toc-number">1.</span> <span class="toc-text">编译链接过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-编译过程"><span class="toc-number">1.1.</span> <span class="toc-text">1. 编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-编译"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 编译</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.1.</span> <span class="toc-text"> 1.1.1 预处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.2.</span> <span class="toc-text"> 1.1.1.1 包含文件 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.3.</span> <span class="toc-text"> 1.1.1.2 条件编译 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.4.</span> <span class="toc-text"> 1.1.1.3 宏定义与扩展 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.5.</span> <span class="toc-text"> 1.1.1.4 特殊的宏与指令 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.6.</span> <span class="toc-text"> 1.1.1.5 Token连接 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.7.</span> <span class="toc-text"> 1.1.1.6 用户定义的编译错误与警告 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.8.</span> <span class="toc-text"> 1.1.1.7 编译器相关的预处理特性 </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.1.0.9.</span> <span class="toc-text"> 1.1.2 编译和优化 </span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-汇编"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 汇编</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-链接过程"><span class="toc-number">1.2.</span> <span class="toc-text">2. 链接过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-链接"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 链接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text"> 2.1.1 静态链接(编译时) </span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.2.</span> <span class="toc-text"> 2.1.1 动态链接 (加载, 运行时)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.1.0.3.</span> <span class="toc-text"> 2.1.3 静态链接和动态链接的比较 </span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-编译链接过程分析"><span class="toc-number">1.3.</span> <span class="toc-text">3. 编译链接过程分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-预处理操作"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 预处理操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-编译"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-汇编"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.2 汇编</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-链接"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.2 链接</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">2.</span> <span class="toc-text">参考文献</span></a></li></ol>
                     </div>
                 </span>
             </div>
