@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://yancykahn.github.io/assert/compiler-linker/1.png">
 <meta property="og:image" content="https://yancykahn.github.io/assert/compiler-linker/300px-Linker.png">
-<meta property="og:updated_time" content="2018-08-25T04:43:02.545Z">
+<meta property="og:updated_time" content="2018-08-25T04:44:42.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译链接过程">
 <meta name="twitter:description" content="编译链接过程C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.    本文篇幅较长, 想直接看分析过程点击这里下面是从源代码到可执行文件的整个编译链接的过程: 整个编译链接过程无非就分为 编译过程 和 链接过程    1. 编译过">
@@ -302,7 +302,7 @@
 <h3 id="3-1-预处理操作"><a href="#3-1-预处理操作" class="headerlink" title="3.1 预处理操作"></a>3.1 预处理操作</h3></blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -E main.c | tee main.i</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><a href="\assert\compiler-linker\code\test.i">预处理代码</a></p>
+<p><a href="\assert\compiler-linker\code\main.i">预处理代码</a></p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 1 &quot;main.c&quot;</span><br><span class="line"># 1 &quot;&lt;built-in&gt;&quot;</span><br><span class="line"># 1 &quot;&lt;command-line&gt;&quot;</span><br><span class="line"># 1 &quot;main.c&quot;</span><br><span class="line"># 1 &quot;test.h&quot; 1</span><br><span class="line"></span><br><span class="line">void print_hello();</span><br><span class="line">void print_string(char *s);</span><br><span class="line">double getArea(int r);</span><br><span class="line"># 2 &quot;main.c&quot; 2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line"></span><br><span class="line">    print_hello();</span><br><span class="line"></span><br><span class="line">    print_hello();</span><br><span class="line"></span><br><span class="line">    print_string(&quot;hello c!&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
