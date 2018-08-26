@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
-  <title>YancyKahn</title>
+  <title>POJ-1410 | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="YancyKahn&apos;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YancyKahn">
-<meta property="og:url" content="https://YancyKahn.GitHub.io/index.html">
+  <meta name="description" content="POJ-1410 Intersection题目大意:判断一条线段是够与给定的一个矩形相交(在矩形内也算相交).题目分析:首先要判断这个线段是够与矩形的四个边相交, 直接有差积判断. 然后还要判断线段是否在矩形内, 直接可以判断这条线段是否有一个点在矩形内即可, 点在凸多边形内, 可以用这个点和凸多边形的角做差积, 只要有一个差积小于0就说明不在凸多边形内, 再者还要判断是否在凸多边形上. 这道题有">
+<meta name="keywords" content="POJ,计算几何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ-1410">
+<meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/26/POJ-1410/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="YancyKahn&apos;s Blog">
+<meta property="og:description" content="POJ-1410 Intersection题目大意:判断一条线段是够与给定的一个矩形相交(在矩形内也算相交).题目分析:首先要判断这个线段是够与矩形的四个边相交, 直接有差积判断. 然后还要判断线段是否在矩形内, 直接可以判断这条线段是否有一个点在矩形内即可, 点在凸多边形内, 可以用这个点和凸多边形的角做差积, 只要有一个差积小于0就说明不在凸多边形内, 再者还要判断是否在凸多边形上. 这道题有">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-26T06:12:39.877Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YancyKahn">
-<meta name="twitter:description" content="YancyKahn&apos;s Blog">
+<meta name="twitter:title" content="POJ-1410">
+<meta name="twitter:description" content="POJ-1410 Intersection题目大意:判断一条线段是够与给定的一个矩形相交(在矩形内也算相交).题目分析:首先要判断这个线段是够与矩形的四个边相交, 直接有差积判断. 然后还要判断线段是否在矩形内, 直接可以判断这条线段是否有一个点在矩形内即可, 点在凸多边形内, 可以用这个点和凸多边形的角做差积, 只要有一个差积小于0就说明不在凸多边形内, 再者还要判断是否在凸多边形上. 这道题有">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -153,16 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-POJ-1410" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-POJ-1410" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/26/POJ-1410/">POJ-1410</a>
+    <h1 class="article-title" itemprop="name">
+      POJ-1410
     </h1>
   
 
@@ -177,12 +177,44 @@
           
                     
                       
-                            <h1 id="POJ-1410-Intersection"><a href="#POJ-1410-Intersection" class="headerlink" title="POJ-1410 Intersection"></a>POJ-1410 Intersection</h1><p>题目大意:<br>判断一条线段是够与给定的一个矩形相交(在矩形内也算相交).<br>题目分析:<br>首先要判断这个线段是够与矩形的四个边相交, 直接有差积判断. 然后还要判断线段是否在矩形内, 直接可以判断这条线段是否有一个点在矩形内即可, 点在凸多边形内, 可以用这个点和凸多边形的角做差积, 只要有一个差积小于0就说明不在凸多边形内, 再者还要判断是否在凸多边形上. 这道题有一个坑点, 他给的的矩形左上右下不是真正的左上右下, 需要判断一下.(真的坑, 干嘛要用左上右下命名呀!!!)</p>
-                              
-                                  
+                        <h1 id="POJ-1410-Intersection"><a href="#POJ-1410-Intersection" class="headerlink" title="POJ-1410 Intersection"></a>POJ-1410 Intersection</h1><p>题目大意:<br>判断一条线段是够与给定的一个矩形相交(在矩形内也算相交).<br>题目分析:<br>首先要判断这个线段是够与矩形的四个边相交, 直接有差积判断. 然后还要判断线段是否在矩形内, 直接可以判断这条线段是否有一个点在矩形内即可, 点在凸多边形内, 可以用这个点和凸多边形的角做差积, 只要有一个差积小于0就说明不在凸多边形内, 再者还要判断是否在凸多边形上. 这道题有一个坑点, 他给的的矩形左上右下不是真正的左上右下, 需要判断一下.(真的坑, 干嘛要用左上右下命名呀!!!)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const double eps = 1e-6;</span><br><span class="line">int sgn(double x) &#123;</span><br><span class="line">  if (fabs(x) &lt; eps)</span><br><span class="line">    return 0;</span><br><span class="line">  if (x &lt; 0)</span><br><span class="line">    return -1;</span><br><span class="line">  else</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line">struct _Point &#123;</span><br><span class="line">  double x, y;</span><br><span class="line">  _Point(double _x, double _y) &#123;</span><br><span class="line">    x = _x;</span><br><span class="line">    y = _y;</span><br><span class="line">  &#125;</span><br><span class="line">  _Point() &#123;&#125;</span><br><span class="line">  _Point operator-(const _Point b) const &#123; return _Point(x - b.x, y - b.y); &#125;</span><br><span class="line">  _Point operator+(const _Point b) const &#123; return _Point(x + b.x, y + b.y); &#125;</span><br><span class="line">  double operator*(const _Point b) const &#123; return x * b.x + y * b.y; &#125;</span><br><span class="line">  double operator^(const _Point b) const &#123; return x * b.y - y * b.x; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct _Line &#123;</span><br><span class="line">  _Point s, e;</span><br><span class="line">  _Line() &#123;&#125;</span><br><span class="line">  _Line(_Point _s, _Point _e) &#123;</span><br><span class="line">    s = _s;</span><br><span class="line">    e = _e;</span><br><span class="line">  &#125;</span><br><span class="line">  pair&lt;int, _Point&gt; operator&amp;(const _Line b) const &#123;</span><br><span class="line">    _Point res = s;</span><br><span class="line">    if (sgn((s - e) ^ (b.s - b.e)) == 0) &#123;</span><br><span class="line">      if (sgn((s - b.e) ^ (b.s - b.e)) == 0) &#123;</span><br><span class="line">        return make_pair(0, res); // chonghe</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        return make_pair(1, res); // pingxing</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    double t = ((s - b.s) ^ (b.s - b.e)) / ((s - e) ^ (b.s - b.e));</span><br><span class="line">    res.x += (e.x - s.x) * t;</span><br><span class="line">    res.y += (e.y - s.y) * t;</span><br><span class="line">    return make_pair(2, res);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">bool inter(_Line l1, _Line l2) &#123;</span><br><span class="line">  return max(l1.s.x, l1.e.x) &gt;= min(l2.s.x, l2.e.x) &amp;&amp;</span><br><span class="line">         max(l2.s.x, l2.e.x) &gt;= min(l1.s.x, l1.e.x) &amp;&amp;</span><br><span class="line">         max(l1.s.y, l1.e.y) &gt;= min(l2.s.y, l2.e.y) &amp;&amp;</span><br><span class="line">         max(l2.s.y, l2.e.y) &gt;= min(l1.s.y, l1.e.y) &amp;&amp;</span><br><span class="line">         sgn((l2.s - l1.e) ^ (l1.s - l1.e)) *</span><br><span class="line">                 sgn((l2.e - l1.e) ^ (l1.s - l1.e)) &lt;=</span><br><span class="line">             0 &amp;&amp;</span><br><span class="line">         sgn((l1.s - l2.e) ^ (l2.s - l2.e)) *</span><br><span class="line">                 sgn((l1.e - l2.e) ^ (l2.s - l2.e)) &lt;=</span><br><span class="line">             0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool OnSeg(_Point P, _Line L) &#123;</span><br><span class="line">  return sgn((L.s - P) ^ (L.e - P)) == 0 &amp;&amp;</span><br><span class="line">         sgn((P.x - L.s.x) * (P.x - L.e.x)) &lt;= 0 &amp;&amp;</span><br><span class="line">         sgn((P.y - L.s.y) * (P.y - L.e.y)) &lt;= 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int inConvexPoly(_Point a, _Point p[], int n) &#123;</span><br><span class="line">  for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">    if (sgn((p[i] - a) ^ (p[(i + 1) % n] - a)) &lt; 0)</span><br><span class="line">      return -1;</span><br><span class="line">    else if (OnSeg(a, _Line(p[i], p[(i + 1) % n])))</span><br><span class="line">      return 0;</span><br><span class="line">  &#125;</span><br><span class="line">  return 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  int n;</span><br><span class="line">  double xstart, ystart, xend, yend, xleft, ytop, xright, ybottom;</span><br><span class="line">  while (~scanf(&quot;%d&quot;, &amp;n)) &#123;</span><br><span class="line">    while (n--) &#123;</span><br><span class="line">      cin &gt;&gt; xstart &gt;&gt; ystart &gt;&gt; xend &gt;&gt; yend &gt;&gt; xleft &gt;&gt; ytop &gt;&gt; xright &gt;&gt;</span><br><span class="line">          ybottom;</span><br><span class="line">      if (xleft &gt; xright)</span><br><span class="line">        swap(xleft, xright);</span><br><span class="line">      if (ybottom &gt; ytop)</span><br><span class="line">        swap(ybottom, ytop);</span><br><span class="line">      _Point p[5];</span><br><span class="line">      p[0].x = xleft, p[0].y = ybottom;</span><br><span class="line">      p[1].x = xright, p[1].y = ybottom;</span><br><span class="line">      p[2].x = xright, p[2].y = ytop;</span><br><span class="line">      p[3].x = xleft, p[3].y = ytop;</span><br><span class="line"></span><br><span class="line">      _Line l1(p[0], p[1]);</span><br><span class="line">      _Line l2(p[1], p[2]);</span><br><span class="line">      _Line l3(p[2], p[3]);</span><br><span class="line">      _Line l4(p[3], p[0]);</span><br><span class="line"></span><br><span class="line">      _Line l(_Point(xstart, ystart), _Point(xend, yend));</span><br><span class="line"></span><br><span class="line">      if (inter(l, l1) || inter(l, l2) || inter(l, l3) || inter(l, l4) ||</span><br><span class="line">          inConvexPoly(l.s, p, 4) &gt;= 0 || inConvexPoly(l.e, p, 4) &gt;= 0) &#123;</span><br><span class="line">        cout &lt;&lt; &quot;T&quot; &lt;&lt; endl;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        cout &lt;&lt; &quot;F&quot; &lt;&lt; endl;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                          
                                     
 
                                       
+                                        <div class="page-reward">
+                                          <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                            <div class="tooltip tooltip-east">
+                                              <span class="tooltip-item">
+              赏
+            </span>
+                                              <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assert/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                                            </div>
+                                            
+                                              
+                                                <div class="reward-box-item">
+                                                  <img class="reward-img" src="/assert/images/wechat.png">
+                                                  <span class="reward-type">微信</span>
+                                                </div>
+                                                
+                                        </div>
+                                        </span>
+                                        </span>
+                                        </span>
+        </div>
+        </a>
+  </div>
+  
     </div>
     <div class="article-info article-info-index">
       
@@ -216,204 +248,76 @@
 
 
               
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/26/POJ-1410/">
-                    展开全文 >></a>
-                </p>
-                
 
                   
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-
-  
-    <article id="post-POJ-1066" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/26/POJ-1066/">POJ-1066</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/26/POJ-1066/" class="archive-article-date">
-  	<time datetime="2018-08-26T05:56:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
                     
-                      
-                            <h1 id="POJ-1066-Treasure-Hunt"><a href="#POJ-1066-Treasure-Hunt" class="headerlink" title="POJ-1066 Treasure Hunt"></a>POJ-1066 Treasure Hunt</h1><p>题目大意:<br>给定一个二维空间, 在空间中被直线分割成很多小块, 在这个空间中有一个点, 要求从这个点出发, 经过最少的线段达到二维空间的边缘.<br>题目分析:<br>既然要找最少的, 我们可以遍历计算这个点到这个二维空间边缘所有的点构成的直线与空间中直线的交点数量, 找到最少的即可. 注意这里边缘的点也要计算四边形的四个角的这四个点.</p>
-                              
-                                  
-                                    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 
-                                      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://YancyKahn.GitHub.io/2018/08/26/POJ-1410/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POJ</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
+</div>
 
-            
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/计算几何//" class="article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/26/POJ-1066/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
+<div class="mask js-mask"></div>
+                      
                         <div class="clearfix"></div>
     </div>
     </div>
 </article>
 
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-
   
-    <article id="post-POJ-2653" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/26/POJ-1066/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">POJ-1066</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/26/POJ-2653/">POJ-2653</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/26/POJ-2653/" class="archive-article-date">
-  	<time datetime="2018-08-26T05:50:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-                    
-                      
-                            <h1 id="POJ-2653-Pick-up-sticks"><a href="#POJ-2653-Pick-up-sticks" class="headerlink" title="POJ-2653 Pick-up sticks"></a>POJ-2653 Pick-up sticks</h1><p>题目大意:<br>在一个二维的坐标系中有很多线段, 他们的放置时间是不同的, 即为他们可能是一个压着一个的, 保证最后一个放的线段一定在最上面. 判断有哪几条线段是在最上面的.<br>题目分析:<br>既然线段是按照时间放上出去, 我们可以从后往前进行遍历, 只要他与他后面放上去的线段没有相交的话即可判断他是在最上面的.</p>
-                              
-                                  
-                                    
-
-                                      
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POJ</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/计算几何//" class="article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/26/POJ-2653/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
       <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
@@ -427,686 +331,51 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-        
-
-  
-    <article id="post-POJ-3304" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/26/POJ-3304/">POJ-3304</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/26/POJ-3304/" class="archive-article-date">
-  	<time datetime="2018-08-26T05:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-                    
-                      
-                            <h1 id="POJ-3304-Segments"><a href="#POJ-3304-Segments" class="headerlink" title="POJ-3304 Segments"></a>POJ-3304 Segments</h1><p>题目大意:<br>给定一个二维空间中的n条线段, 判断这n条线段是否最少有一个公共段(交点).<br>题目分析:<br>根据题目大意, 我们可以转换成是否有一条直线L的垂线M经过所有的线段, 很好理解, 垂线的话, 在这条直线上只有一点, 与所有的线段相交, 直线L与垂线M的交点即为公共交点. 所以可以枚举每个线段的端点, 把所有的垂线M枚举, 只要M与所有的线段相交即可.</p>
-                              
-                                  
-                                    
-
-                                      
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POJ</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/计算几何//" class="article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/26/POJ-3304/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#POJ-1410-Intersection"><span class="toc-number">1.</span> <span class="toc-text">POJ-1410 Intersection</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
         
-
-  
-    <article id="post-POJ-2398" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/26/POJ-2398/">POJ-2398</a>
-    </h1>
-  
-
           
-            <a href="/2018/08/26/POJ-2398/" class="archive-article-date">
-  	<time datetime="2018-08-26T05:36:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-                    
-                      
-                            <h1 id="POJ-2398-Toy-Storage"><a href="#POJ-2398-Toy-Storage" class="headerlink" title="POJ-2398 Toy Storage"></a>POJ-2398 Toy Storage</h1><p>题目大意:<br>这道题是上一道POJ-2318的进阶, 首先它给定的块分布是乱序的, 我们要先排序. 其次它统计的是数量为t的玩具数量一共有几个块. 和POJ-2398的思想是一样的, 只是加个排序.</p>
-                              
-                                  
-                                    
 
-                                      
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POJ</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/计算几何//" class="article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/26/POJ-2398/">
-                    展开全文 >></a>
-                </p>
                 
 
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-
-  
-    <article id="post-POJ-2318" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/26/POJ-2318/">POJ-2318</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/26/POJ-2318/" class="archive-article-date">
-  	<time datetime="2018-08-26T05:25:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-                    
                       
-                            <h1 id="POJ-2318-Toys"><a href="#POJ-2318-Toys" class="headerlink" title="POJ-2318 Toys"></a>POJ-2318 Toys</h1><p>题目大意:<br>给定一个区域, 在这个区域中划分成几个块, 都是以x轴划分的, 具体划分见原题. 再给定一系列的点, 判断此点是在哪个块内, 要求统计每个块中的点的个数.<br>解题思想:<br>此题就是判断点与直线的关系, 因为给定的块划分是排好序的, 所以直接用点与直线的关系判断, 如果点在线段的顺时针侧, 那么这个点与直线构成的向量差积应该是小于0的, 从左到右遍历, 进行统计即可. 注意输出格式.</p>
-                              
-                                  
+
+                            
+
+                                
+                                  <div id="gitment-ctn"></div>
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'POJ-1410',
+  owner: 'YancyKahn',
+  repo: 'Blog-Comment',
+  oauth: {
+    client_id: 'd0913cdb332bb10f5dae',
+    client_secret: 'b8cd68b57c0341fce6ca7b849fb61fcf0366d0f2',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+
                                     
-
                                       
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POJ</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/计算几何//" class="article-tag-list-link color5">计算几何</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/26/POJ-2318/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-
-  
-    <article id="post-POJ-1556" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/26/POJ-1556/">POJ-1556</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/26/POJ-1556/" class="archive-article-date">
-  	<time datetime="2018-08-26T05:18:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-                    
-                      
-                            <h1 id="POJ-1556-The-Doors"><a href="#POJ-1556-The-Doors" class="headerlink" title="POJ-1556 The Doors"></a>POJ-1556 The Doors</h1><p>题目大意:<br>给定坐标内的一个面积10*10, 要求从(0, 5) -&gt; (10, 5) 点的最短长度, 中间会有墙阻拦, 只能绕过.<br>解题思想:<br>首先预处理一下, 把所有的点可以直接直线到达的点连接起来, 他们的权值就是之间的距离, 这样构图, 再用dijkstra求解最短路. 这道题代码很长, 但是思想很简单.主要是构图的时候比较麻烦, 比较坑, 细心一点就好.</p>
-                              
-                                  
-                                    
-
-                                      
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POJ</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">计算几何</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">最短路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/计算几何//" class="article-tag-list-link color5">计算几何</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/计算几何/最短路//" class="article-tag-list-link color4">最短路</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/26/POJ-1556/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-
-  
-    <article id="post-程序分析工具ldd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/25/程序分析工具ldd/">程序分析工具ldd</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/25/程序分析工具ldd/" class="archive-article-date">
-  	<time datetime="2018-08-25T05:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
-</a>
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-                    
-                      
-                            <hr>
-                              
-                                  
-                                    
-
-                                      
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">程序分析工具</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ldd</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序分析工具//" class="article-tag-list-link color2">程序分析工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/25/程序分析工具ldd/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-
-  
-    <article id="post-编译链接过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/24/编译链接过程/">编译链接过程</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/24/编译链接过程/" class="archive-article-date">
-  	<time datetime="2018-08-24T11:42:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
-</a>
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-                    
-                      
-                            <h1 id="编译链接过程"><a href="#编译链接过程" class="headerlink" title="编译链接过程"></a>编译链接过程</h1><p>C/C++程序从文本到可执行文件之间是一个复杂的过程. 对于源代码(.c/.cpp)文件我们是不能直接运行的, 必须经过一系列的处理才能转化为机器语言, 再通过链接相应的文件转化为可执行程序. 这个过程称为编译链接过程.    <font color="pink">本文篇幅较长, 想直接看分析过程点击<a href="#fxgc">这里</a></font><br>下面是从源代码到可执行文件的整个编译链接的过程:</p>
-                              
-                                  
-                                    
-
-                                      
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链接</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">g++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/编译链接//" class="article-tag-list-link color5">编译链接</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/24/编译链接过程/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-
-  
-    <article id="post-markdown转pdf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/24/markdown转pdf/">markdown转pdf</a>
-    </h1>
-  
-
-          
-            <a href="/2018/08/24/markdown转pdf/" class="archive-article-date">
-  	<time datetime="2018-08-24T01:59:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
-</a>
-              
-      </header>
-      
-        <div class="article-entry" itemprop="articleBody">
-          
-                    
-                      
-                            <h1 id="Markdown-转化为-PDF-文档"><a href="#Markdown-转化为-PDF-文档" class="headerlink" title="Markdown 转化为 PDF 文档"></a>Markdown 转化为 PDF 文档</h1><hr>
-                              
-                                  
-                                    
-
-                                      
-    </div>
-    <div class="article-info article-info-index">
-      
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pdf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-            
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-              
-                <p class="article-more-link">
-                  <a class="article-more-a" href="/2018/08/24/markdown转pdf/">
-                    展开全文 >></a>
-                </p>
-                
-
-                  
-                        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-      <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-        
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
-
 
           </div>
         </div>
@@ -1138,8 +407,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
