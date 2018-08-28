@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://YancyKahn.GitHub.io">
-  <title>Category: markdown | YancyKahn</title>
+  <title>POJ-1696 | YancyKahn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="YancyKahn&apos;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YancyKahn">
-<meta property="og:url" content="https://YancyKahn.GitHub.io/categories/markdown/index.html">
+  <meta name="description" content="POJ-1696 Space Ant题目大意:在一个二维空间中给定一系列的点, 每个点的都有一个编号, 表示第几个输入的, 然后从一个点开始[0, x], x表示其中一个点的x坐标, 可以做如下操作:  只能向右转. 不能和之前的走过的路线相交 不能回头要求经过最多点, 并且输出经过点的编号排序.题目分析:刚拿到直到题的时候, 感觉可以根据极角进行排序, 可是不知道怎么排. 参考了kuangbin">
+<meta name="keywords" content="POJ,计算几何">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ-1696">
+<meta property="og:url" content="https://YancyKahn.GitHub.io/2018/08/28/POJ-1696/index.html">
 <meta property="og:site_name" content="YancyKahn">
-<meta property="og:description" content="YancyKahn&apos;s Blog">
+<meta property="og:description" content="POJ-1696 Space Ant题目大意:在一个二维空间中给定一系列的点, 每个点的都有一个编号, 表示第几个输入的, 然后从一个点开始[0, x], x表示其中一个点的x坐标, 可以做如下操作:  只能向右转. 不能和之前的走过的路线相交 不能回头要求经过最多点, 并且输出经过点的编号排序.题目分析:刚拿到直到题的时候, 感觉可以根据极角进行排序, 可是不知道怎么排. 参考了kuangbin">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-28T02:08:07.288Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YancyKahn">
-<meta name="twitter:description" content="YancyKahn&apos;s Blog">
+<meta name="twitter:title" content="POJ-1696">
+<meta name="twitter:description" content="POJ-1696 Space Ant题目大意:在一个二维空间中给定一系列的点, 每个点的都有一个编号, 表示第几个输入的, 然后从一个点开始[0, x], x表示其中一个点的x坐标, 可以做如下操作:  只能向右转. 不能和之前的走过的路线相交 不能回头要求经过最多点, 并且输出经过点的编号排序.题目分析:刚拿到直到题的时候, 感觉可以根据极角进行排序, 可是不知道怎么排. 参考了kuangbin">
   
     <link rel="alternative" href="/atom.xml" title="YancyKahn" type="application/atom+xml">
   
@@ -153,129 +155,232 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-POJ-1696" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      POJ-1696
+    </h1>
+  
+
+          
+            <a href="/2018/08/28/POJ-1696/" class="archive-article-date">
+  	<time datetime="2018-08-28T01:59:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-28</time>
+</a>
+              
+      </header>
+      
+        <div class="article-entry" itemprop="articleBody">
+          
+                    
+                      
+                        <h1 id="POJ-1696-Space-Ant"><a href="#POJ-1696-Space-Ant" class="headerlink" title="POJ-1696 Space Ant"></a>POJ-1696 Space Ant</h1><p>题目大意:<br>在一个二维空间中给定一系列的点, 每个点的都有一个编号, 表示第几个输入的, 然后从一个点开始[0, x], x表示其中一个点的x坐标, 可以做如下操作:</p>
+<ol>
+<li>只能向右转.</li>
+<li>不能和之前的走过的路线相交</li>
+<li>不能回头<br>要求经过最多点, 并且输出经过点的编号排序.<br>题目分析:<br>刚拿到直到题的时候, 感觉可以根据极角进行排序, 可是不知道怎么排. 参考了<a href="https://www.cnblogs.com/kuangbin/p/3192286.html" target="_blank" rel="noopener">kuangbin</a>, ORZ. 如何根据极角排序呢? 选定每个点, 然后与其余各个点构成的极角进行排序. 即要的到任意两组(三个点)的极角比较,然后排序, 详情见代码.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int MAXN = 100;</span><br><span class="line">const double eps = 1e-8;</span><br><span class="line">int sgn(double x) &#123;</span><br><span class="line">  if (fabs(x) &lt; eps)</span><br><span class="line">    return 0;</span><br><span class="line">  if (x &lt; 0)</span><br><span class="line">    return -1;</span><br><span class="line">  else</span><br><span class="line">    return 1;</span><br><span class="line">&#125;</span><br><span class="line">struct Point &#123;</span><br><span class="line">  double x, y;</span><br><span class="line">  int id;</span><br><span class="line">  Point() &#123;&#125;</span><br><span class="line">  Point(double _x, double _y) &#123;</span><br><span class="line">    x = _x;</span><br><span class="line">    y = _y;</span><br><span class="line">  &#125;</span><br><span class="line">  Point operator-(const Point &amp;b) const &#123; return Point(x - b.x, y - b.y); &#125;</span><br><span class="line">  Point operator+(const Point &amp;b) const &#123; return Point(x + b.x, y + b.y); &#125;</span><br><span class="line">  double operator^(const Point &amp;b) const &#123; return x * b.y - y * b.x; &#125;</span><br><span class="line">  double operator*(const Point &amp;b) const &#123; return x * b.x + y * b.y; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Point list[MAXN];</span><br><span class="line">int t, n, idx;</span><br><span class="line">double dist(Point p1, Point p2) &#123; return sqrt((p1 - p2) * (p1 - p2)); &#125;</span><br><span class="line"></span><br><span class="line">bool _cmp(Point a, Point b) &#123;</span><br><span class="line">  double tmp = (a - list[idx]) ^ (b - list[idx]);</span><br><span class="line">  if (sgn(tmp) == 0) &#123;</span><br><span class="line">    return dist(list[idx], a) &lt; dist(list[idx], b);</span><br><span class="line">  &#125; else if (sgn(tmp) &lt; 0)</span><br><span class="line">    return false;</span><br><span class="line">  else</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">  scanf(&quot;%d&quot;, &amp;t);</span><br><span class="line">  while (t--) &#123;</span><br><span class="line">    scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">    for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">      scanf(&quot;%d%lf%lf&quot;, &amp;list[i].id, &amp;list[i].x, &amp;list[i].y);</span><br><span class="line">      if ((list[i].y &lt; list[0].y) ||</span><br><span class="line">          (list[i].y == list[0].y &amp;&amp; list[i].x &lt; list[0].x))</span><br><span class="line">        swap(list[0], list[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    idx = 0;</span><br><span class="line">    for (int i = 1; i &lt; n; ++i) &#123;</span><br><span class="line">      sort(list + i, list + n, _cmp);</span><br><span class="line">      idx++;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d&quot;, n);</span><br><span class="line">    for (int i = 0; i &lt; n; ++i) &#123;</span><br><span class="line">      printf(&quot; %d&quot;, list[i].id);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+                          
+                                    
+
+                                      
+                                        <div class="page-reward">
+                                          <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                            <div class="tooltip tooltip-east">
+                                              <span class="tooltip-item">
+              赏
+            </span>
+                                              <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assert/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                                            </div>
+                                            
+                                              
+                                                <div class="reward-box-item">
+                                                  <img class="reward-img" src="/assert/images/wechat.png">
+                                                  <span class="reward-type">微信</span>
+                                                </div>
+                                                
+                                        </div>
+                                        </span>
+                                        </span>
+                                        </span>
+        </div>
+        </a>
+  </div>
+  
+    </div>
+    <div class="article-info article-info-index">
+      
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POJ</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">计算几何</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
             
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/24/markdown转pdf/" class="archive-article-date">
-  	<time datetime="2018-08-24T01:59:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/24/markdown转pdf/">markdown转pdf</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pdf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
+        			<a href="/categories/计算几何//" class="article-tag-list-link color5">计算几何</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+              
+
+                  
+                    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://YancyKahn.GitHub.io/2018/08/28/POJ-1696/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                      
+                        <div class="clearfix"></div>
+    </div>
+    </div>
 </article>
+
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/26/POJ-1410/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">POJ-1410</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/23/markdown-toturial/" class="archive-article-date">
-  	<time datetime="2018-08-23T01:03:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
+      <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/23/markdown-toturial/">markdown-toturial</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">toturial</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#POJ-1696-Space-Ant"><span class="toc-number">1.</span> <span class="toc-text">POJ-1696 Space Ant</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+        
+    </div>
+</aside>
 
-    
 
+        
+          
+
+                
+
+                      
+
+                            
+
+                                
+                                  <div id="gitment-ctn"></div>
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: 'POJ-1696',
+  owner: 'YancyKahn',
+  repo: 'Blog-Comment',
+  oauth: {
+    client_id: 'd0913cdb332bb10f5dae',
+    client_secret: 'b8cd68b57c0341fce6ca7b849fb61fcf0366d0f2',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+
+                                    
+                                      
 
           </div>
         </div>
@@ -308,10 +413,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
